@@ -1028,3 +1028,42 @@ async function addUser(nameParam, emailParam) {
 </script>
 </body>
 </html>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script>
+const supabase = window.supabase.createClient(
+  idjgrexzlbxsyunvcqas
+  sb_publishable_MF7T-XFcEzLqBhzlQq319w_hOwE5zOs
+);
+
+async function loadTherapists() {
+  const { data, error } = await supabase
+    .from("therapists")
+    .select("*")
+    .eq("status", "approved");
+
+  const container = document.getElementById("therapist-container");
+
+  if (data && data.length > 0) {
+    container.innerHTML = "";
+
+    data.forEach(t => {
+      container.innerHTML += `
+        <div style="border:1px solid #ddd; padding:15px; margin:10px; border-radius:10px;">
+          <h3>${t.name}</h3>
+          <p><b>Specialization:</b> ${t.specialization}</p>
+          <p><b>Experience:</b> ${t.experience} years</p>
+          <p><b>Price:</b> ₹${t.price}</p>
+          <p><b>Available:</b> ${t.available_days} | ${t.available_time}</p>
+          <p><b>Language:</b> ${t.language}</p>
+          <p>${t.bio}</p>
+          <button>Book Session</button>
+        </div>
+      `;
+    });
+  } else {
+    container.innerHTML = "No therapists available";
+  }
+}
+
+loadTherapists();
+</script>
