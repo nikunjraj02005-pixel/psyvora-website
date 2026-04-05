@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -29,16 +30,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,243,236,
 .nav-cta{background:var(--deep);color:var(--white);border:none;padding:10px 22px;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:background .2s}
 .nav-cta:hover{background:var(--sage-dark)}
 
-/* HERO */
-.hero{padding:140px 5% 80px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;min-height:100vh}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--sage-light);color:var(--sage-dark);padding:6px 14px;border-radius:50px;font-size:12px;font-weight:500;margin-bottom:24px}
+/* HERO — centered, full-width, no fake cards */
+.hero{padding:140px 5% 100px;max-width:860px;margin:0 auto;text-align:center;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--sage-light);color:var(--sage-dark);padding:6px 14px;border-radius:50px;font-size:12px;font-weight:500;margin-bottom:28px}
 .hero-badge::before{content:'';width:6px;height:6px;background:var(--sage);border-radius:50%}
-.hero h1{font-size:clamp(42px,5vw,68px);line-height:1.1;font-weight:500;color:var(--deep);margin-bottom:20px;letter-spacing:-1px}
+.hero h1{font-size:clamp(44px,6vw,76px);line-height:1.05;font-weight:500;color:var(--deep);margin-bottom:22px;letter-spacing:-1.5px}
 .hero h1 em{color:var(--sage);font-style:italic}
-.hero-desc{font-size:17px;line-height:1.7;color:var(--text2);margin-bottom:36px;max-width:460px;font-weight:300}
+.hero-desc{font-size:18px;line-height:1.7;color:var(--text2);margin-bottom:44px;max-width:560px;font-weight:300}
 
 /* HERO CTA CARDS */
-.hero-cta-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.hero-cta-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:560px}
 .cta-card{border-radius:var(--r2);padding:24px 22px;cursor:pointer;transition:all .25s;border:1.5px solid transparent;text-align:left}
 .cta-card.primary{background:var(--deep);color:white}
 .cta-card.primary:hover{background:var(--sage-dark);transform:translateY(-2px)}
@@ -55,33 +56,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,243,236,
 .cta-card.primary .cta-card-arrow{color:rgba(255,255,255,.85)}
 .cta-card.secondary .cta-card-arrow{color:var(--sage-dark)}
 
-/* HERO VISUAL */
-.hero-visual{position:relative}
-.hero-card-main{background:var(--white);border-radius:var(--r2);padding:32px;border:1px solid var(--cream-dark)}
-.therapist-row{display:flex;align-items:center;gap:14px;margin-bottom:24px}
-.t-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#C4784D,#E8A882);display:flex;align-items:center;justify-content:center;color:white;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600}
-.t-info h4{font-size:15px;font-weight:500;color:var(--deep);font-family:'DM Sans',sans-serif}
-.t-info p{font-size:12px;color:var(--text3)}
-.session-pill{display:inline-flex;align-items:center;gap:6px;background:var(--sage-light);color:var(--sage-dark);padding:5px 12px;border-radius:50px;font-size:12px;font-weight:500;margin-left:auto}
-.session-pill::before{content:'';width:5px;height:5px;background:var(--sage);border-radius:50%;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.slot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
-.slot{background:var(--cream);border:1px solid var(--cream-dark);border-radius:8px;padding:10px;text-align:center;cursor:pointer;transition:all .2s}
-.slot:hover,.slot.active{background:var(--deep);color:var(--white);border-color:var(--deep)}
-.slot p{font-size:11px;color:inherit;opacity:.7}
-.slot span{font-size:13px;font-weight:500}
-.hero-card-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.hca-btn{border:none;padding:12px;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;width:100%}
-.hca-btn.consult{background:var(--terra);color:white}
-.hca-btn.consult:hover{background:#b0663b}
-.hca-btn.event{background:var(--sage-light);color:var(--sage-dark);border:1px solid rgba(107,143,113,.3)}
-.hca-btn.event:hover{background:var(--sage);color:white}
-.floating-card{position:absolute;background:var(--white);border-radius:var(--r);padding:14px 18px;border:1px solid var(--cream-dark);box-shadow:0 8px 32px rgba(42,61,53,.08)}
-.fc-left{bottom:-20px;left:-30px;min-width:160px}
-.fc-right{top:-16px;right:-20px;min-width:150px}
-.fc-stat{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--deep)}
-.fc-label{font-size:11px;color:var(--text3);margin-top:2px}
-
 /* STATS */
 .stats{background:var(--deep);padding:48px 5%}
 .stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
@@ -95,29 +69,7 @@ section{padding:80px 5%}
 .section-title{font-size:clamp(32px,4vw,48px);font-weight:500;color:var(--deep);line-height:1.15;margin-bottom:12px;letter-spacing:-.5px}
 .section-sub{font-size:16px;color:var(--text2);max-width:520px;line-height:1.6;font-weight:300;margin-bottom:48px}
 
-/* VIDEO SECTION — DOXY ONLY */
-.doxy-hero{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:48px}
-.doxy-info h3{font-size:36px;font-weight:500;color:white;line-height:1.2;margin-bottom:16px}
-.doxy-info h3 em{color:var(--sage);font-style:italic}
-.doxy-info p{font-size:15px;color:rgba(255,255,255,.6);line-height:1.7;font-weight:300;margin-bottom:28px}
-.doxy-badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
-.doxy-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(107,143,113,.15);border:1px solid rgba(107,143,113,.25);color:#9fcca5;padding:7px 14px;border-radius:50px;font-size:12px;font-weight:500}
-.doxy-badge::before{content:'✓';font-weight:700}
-.doxy-cta-btn{background:var(--sage);color:white;border:none;padding:14px 28px;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:all .2s}
-.doxy-cta-btn:hover{background:var(--sage-dark);transform:translateY(-1px)}
-
-/* DOXY STATS ROW */
-.doxy-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px}
-.doxy-stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px;text-align:center}
-.doxy-stat-num{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:var(--white)}
-.doxy-stat-label{font-size:12px;color:rgba(255,255,255,.45);margin-top:6px}
-
-/* VIDEO PREVIEW */
-.video-preview{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r2);padding:32px}
-.video-preview-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:16px}
-.video-preview-header h3{font-size:22px;font-weight:500;color:var(--white)}
-.live-badge{display:flex;align-items:center;gap:6px;background:rgba(196,120,77,.2);color:#e8a070;padding:6px 14px;border-radius:50px;font-size:12px;font-weight:500}
-.live-badge::before{content:'';width:6px;height:6px;background:#e8a070;border-radius:50%;animation:pulse 1.5s infinite}
+/* Secure Video section */
 .video-mock{background:#0d1a15;border-radius:16px;aspect-ratio:16/9;position:relative;overflow:hidden;margin-bottom:20px;display:flex;align-items:center;justify-content:center}
 .video-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(107,143,113,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(107,143,113,.04) 1px,transparent 1px);background-size:40px 40px}
 .video-participants{display:flex;gap:12px;align-items:center;position:relative;z-index:2}
@@ -187,18 +139,48 @@ section{padding:80px 5%}
 
 /* THERAPISTS */
 .therapists-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.therapist-card{border-radius:var(--r2);overflow:hidden;border:1px solid var(--cream-dark);transition:all .3s;cursor:pointer;background:var(--white)}
+
+/* ── Dynamic therapist cards from Supabase ── */
+.therapist-card{border-radius:var(--r2);overflow:hidden;border:1px solid var(--cream-dark);transition:all .3s;cursor:default;background:var(--white);display:flex;flex-direction:column}
 .therapist-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(42,61,53,.1)}
-.t-img{height:200px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:600;color:white;position:relative}
-.t-img.c1{background:linear-gradient(135deg,#6B8F71,#3D5C42)}
-.t-img.c2{background:linear-gradient(135deg,#C4784D,#A05535)}
-.t-img.c3{background:linear-gradient(135deg,#4A7B8C,#2C5A6B)}
+.t-img{height:180px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;color:white;position:relative;flex-shrink:0}
+.t-img.c0{background:linear-gradient(135deg,#6B8F71,#3D5C42)}
+.t-img.c1{background:linear-gradient(135deg,#C4784D,#A05535)}
+.t-img.c2{background:linear-gradient(135deg,#4A7B8C,#2C5A6B)}
+.t-img.c3{background:linear-gradient(135deg,#7B6B8F,#5A4A6B)}
+.t-img.c4{background:linear-gradient(135deg,#8F6B6B,#6B3D3D)}
+.t-img.c5{background:linear-gradient(135deg,#4A8F7B,#2C6B5A)}
 .video-avail{position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,.5);color:white;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;padding:4px 10px;border-radius:50px;display:flex;align-items:center;gap:5px}
 .video-avail::before{content:'';width:5px;height:5px;background:#6fcf97;border-radius:50%}
-.t-body{padding:24px}
+.t-body{padding:24px;display:flex;flex-direction:column;flex:1}
 .t-body h3{font-size:20px;font-weight:500;color:var(--deep);margin-bottom:4px}
 .t-specialty{font-size:12px;color:var(--terra);font-weight:500;margin-bottom:10px;display:block}
 .t-body>p{font-size:13px;color:var(--text2);line-height:1.5;margin-bottom:12px;font-weight:300}
+.t-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.t-meta-item{background:var(--cream);border-radius:8px;padding:8px 10px}
+.t-meta-label{font-size:10px;color:var(--text3);font-weight:500;text-transform:uppercase;letter-spacing:.4px;margin-bottom:2px}
+.t-meta-value{font-size:12px;color:var(--deep);font-weight:500;line-height:1.3}
+.t-price-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding:10px 12px;background:var(--terra-light);border-radius:10px}
+.t-price{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--terra)}
+.t-price-label{font-size:11px;color:var(--terra);opacity:.8}
+.t-lang-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.t-lang-pill{font-size:11px;color:var(--sage-dark);background:var(--sage-light);padding:3px 10px;border-radius:50px;font-weight:500}
+.t-bio{font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:16px;font-weight:300;font-style:italic;padding:10px 12px;background:var(--cream);border-radius:8px;border-left:3px solid var(--sage)}
+.t-spacer{flex:1}
+
+/* ── Loading skeleton ── */
+.therapist-skeleton{border-radius:var(--r2);overflow:hidden;border:1px solid var(--cream-dark);background:var(--white)}
+.sk-img{height:180px;background:linear-gradient(90deg,#eee 25%,#f5f5f5 50%,#eee 75%);background-size:200% 100%;animation:shimmer 1.4s infinite}
+.sk-body{padding:24px}
+.sk-line{height:12px;border-radius:6px;background:linear-gradient(90deg,#eee 25%,#f5f5f5 50%,#eee 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;margin-bottom:12px}
+.sk-line.w80{width:80%}.sk-line.w60{width:60%}.sk-line.w40{width:40%}.sk-line.w100{width:100%}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+/* ── Empty / error states ── */
+.t-empty-state{grid-column:1/-1;text-align:center;padding:60px 20px}
+.t-empty-icon{font-size:48px;margin-bottom:16px}
+.t-empty-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--deep);margin-bottom:8px}
+.t-empty-sub{font-size:15px;color:var(--text2);font-weight:300}
 .t-rating{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text3);margin-bottom:14px}
 .stars{color:#E8A832;letter-spacing:-1px;font-size:13px}
 .t-book-btn{width:100%;background:var(--deep);color:white;border:none;padding:10px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s}
@@ -266,9 +248,9 @@ footer{background:var(--deep2);padding:60px 5% 32px}
 .confirm-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:6px 0;border-bottom:1px solid var(--cream-dark)}
 .confirm-row:last-child{border-bottom:none;font-weight:500;color:var(--deep);font-size:15px;padding-top:10px}
 .confirm-row span:first-child{color:var(--text2)}
-.doxy-confirm-banner{display:flex;align-items:center;gap:12px;background:rgba(107,143,113,.1);border:1px solid rgba(107,143,113,.25);border-radius:10px;padding:14px 16px;margin-bottom:16px}
-.doxy-confirm-banner p{font-size:13px;color:var(--text2);line-height:1.4}
-.doxy-confirm-banner strong{color:var(--deep)}
+.session-confirm-banner{display:flex;align-items:center;gap:12px;background:rgba(107,143,113,.1);border:1px solid rgba(107,143,113,.25);border-radius:10px;padding:14px 16px;margin-bottom:16px}
+.session-confirm-banner p{font-size:13px;color:var(--text2);line-height:1.4}
+.session-confirm-banner strong{color:var(--deep)}
 .pay-btn{width:100%;background:var(--deep);color:white;border:none;padding:14px;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s}
 .pay-btn:hover{background:var(--sage-dark)}
 .modal-nav{display:flex;justify-content:space-between;align-items:center;margin-top:20px}
@@ -294,12 +276,12 @@ footer{background:var(--deep2);padding:60px 5% 32px}
 .ticket-option.selected .ticket-option-price{color:var(--sage-dark)}
 
 @media(max-width:900px){
-  .hero{grid-template-columns:1fr;padding-top:100px;min-height:auto}
-  .hero-visual{display:none}
+  .hero{padding-top:100px;min-height:auto}
   .stats-inner,.steps-grid{grid-template-columns:1fr 1fr}
-  .services-grid,.therapists-grid,.testimonials-grid{grid-template-columns:1fr}
-  .events-grid,.doxy-hero{grid-template-columns:1fr}
-  .doxy-stats{grid-template-columns:1fr 1fr}
+  .services-grid,.testimonials-grid{grid-template-columns:1fr}
+  .therapists-grid{grid-template-columns:1fr}
+  .events-grid{grid-template-columns:1fr}
+  
   .footer-top{grid-template-columns:1fr 1fr}
   .nav-links{display:none}
   .session-info-row{grid-template-columns:1fr 1fr}
@@ -323,147 +305,38 @@ footer{background:var(--deep2);padding:60px 5% 32px}
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO — clean, centered, no fake data -->
 <div class="hero">
-  <div>
-    <div class="hero-badge">India's Trusted Mental Wellness Platform</div>
-    <h1>Your Safe Space for <em>Mental Wellness</em></h1>
-    <p class="hero-desc">Professional therapy via secure video, guided workshops &amp; community support — all in one place designed for your well-being.</p>
-
-    <!-- TWO CTA CARDS -->
-    <div class="hero-cta-row">
-      <div class="cta-card primary" onclick="openConsultModal()">
-        <span class="cta-card-icon">🧠</span>
-        <div class="cta-card-title">Book a Consultation</div>
-        <div class="cta-card-desc">1-on-1 video therapy session with a verified therapist via Doxy.me</div>
-        <div class="cta-card-arrow">Book Now →</div>
-      </div>
-      <div class="cta-card secondary" onclick="openEventModal()">
-        <span class="cta-card-icon">🎟️</span>
-        <div class="cta-card-title">Buy Event Ticket</div>
-        <div class="cta-card-desc">Workshops, webinars &amp; group sessions — Early Bird, Standard, VIP</div>
-        <div class="cta-card-arrow">View Events →</div>
-      </div>
+  <div class="hero-badge">India's Mental Wellness Platform</div>
+  <h1>Your Safe Space for <em>Mental Wellness</em></h1>
+  <p class="hero-desc">Connect with verified therapists, join live workshops, and take the first step toward a healthier mind — all in one place.</p>
+  <div class="hero-cta-row">
+    <div class="cta-card primary" onclick="openConsultModal()">
+      <span class="cta-card-icon">🧠</span>
+      <div class="cta-card-title">Book a Consultation</div>
+      <div class="cta-card-desc">1-on-1 secure video therapy with a verified therapist</div>
+      <div class="cta-card-arrow">Book Now →</div>
     </div>
-  </div>
-
-  <div class="hero-visual">
-    <div class="hero-card-main">
-      <p style="font-size:13px;color:var(--text3);margin-bottom:16px;font-weight:300">Select a time slot:</p>
-      <div class="hero-card-actions">
-        <button class="hca-btn consult" onclick="openConsultModal()">🧠 Book Consultation</button>
-        <button class="hca-btn event" onclick="openEventModal()">🎟️ Buy Event Ticket</button>
-      </div>
+    <div class="cta-card secondary" onclick="openEventModal()">
+      <span class="cta-card-icon">🎟️</span>
+      <div class="cta-card-title">Buy Event Ticket</div>
+      <div class="cta-card-desc">Workshops, webinars &amp; group sessions — Early Bird to VIP</div>
+      <div class="cta-card-arrow">View Events →</div>
     </div>
-    <div class="floating-card fc-left"><div class="fc-stat">1,200+</div><div class="fc-label">Sessions completed</div></div>
-    <div class="floating-card fc-right"><div class="fc-stat">4.9 ★</div><div class="fc-label">Average rating</div></div>
   </div>
 </div>
 
-<!-- STATS -->
+<!-- TRUST BAR — generic, no fake numbers -->
 <div class="stats">
   <div class="stats-inner">
-    <div class="stat-item"><div class="stat-num">1,200+</div><div class="stat-label">Sessions Completed</div></div>
-    <div class="stat-item"><div class="stat-num">15+</div><div class="stat-label">Expert Therapists</div></div>
-    <div class="stat-item"><div class="stat-num">98%</div><div class="stat-label">Client Satisfaction</div></div>
-    <div class="stat-item"><div class="stat-num">50+</div><div class="stat-label">Events Hosted</div></div>
+    <div class="stat-item"><div class="stat-num">✓</div><div class="stat-label">Verified Therapists</div></div>
+    <div class="stat-item"><div class="stat-num">🔒</div><div class="stat-label">Secure Video Sessions</div></div>
+    <div class="stat-item"><div class="stat-num">🇮🇳</div><div class="stat-label">India-Based Platform</div></div>
+    <div class="stat-item"><div class="stat-num">💬</div><div class="stat-label">Multilingual Support</div></div>
   </div>
 </div>
 
-<!-- VIDEO THERAPY — DOXY.ME ONLY -->
-<section id="video-therapy" style="background:var(--deep2)">
-  <div style="max-width:1200px;margin:0 auto">
-    <div style="text-align:center;margin-bottom:56px">
-      <div class="section-tag" style="background:rgba(107,143,113,.2);color:#9fcca5">Secure Video Sessions</div>
-      <h2 class="section-title" style="color:white;text-align:center">Therapy via <em style="color:var(--sage);font-style:italic">Doxy.me</em></h2>
-      <p class="section-sub" style="color:rgba(255,255,255,.55);text-align:center;margin:0 auto 0">The gold standard in healthcare video calling — built specifically for therapy.</p>
-    </div>
-
-    <!-- DOXY HERO -->
-    <div class="doxy-hero">
-      <div class="doxy-info">
-        <h3>Why We Use <em>Doxy.me</em></h3>
-        <p>We chose Doxy.me over Zoom or Google Meet because it was built from the ground up for mental healthcare — not retrofitted. Your privacy and safety is our first priority.</p>
-        <div class="doxy-badges">
-          <span class="doxy-badge">HIPAA Compliant</span>
-          <span class="doxy-badge">No App Download</span>
-          <span class="doxy-badge">End-to-End Encrypted</span>
-          <span class="doxy-badge">Virtual Waiting Room</span>
-          <span class="doxy-badge">No Login for Clients</span>
-          <span class="doxy-badge">Healthcare-Grade Security</span>
-        </div>
-        <button class="doxy-cta-btn" onclick="openConsultModal()">🔒 Book a Doxy.me Session</button>
-      </div>
-      <div>
-        <!-- DOXY CARD -->
-        <div style="background:rgba(107,143,113,.12);border:1px solid rgba(107,143,113,.25);border-radius:var(--r2);padding:32px">
-          <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
-            <div style="width:56px;height:56px;background:rgba(107,143,113,.25);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px">🔒</div>
-            <div>
-              <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:white">Doxy.me</div>
-              <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:2px">Healthcare Video Platform</div>
-            </div>
-            <div style="margin-left:auto;background:rgba(107,143,113,.2);color:#9fcca5;padding:5px 12px;border-radius:50px;font-size:11px;font-weight:500">Official Partner</div>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.7)"><span style="color:var(--sage);font-weight:600">✓</span> Client clicks your unique waiting room link</div>
-            <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.7)"><span style="color:var(--sage);font-weight:600">✓</span> Therapist sees client arrive — admits when ready</div>
-            <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.7)"><span style="color:var(--sage);font-weight:600">✓</span> Secure, private session begins instantly</div>
-            <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.7)"><span style="color:var(--sage);font-weight:600">✓</span> No data stored — session ends completely</div>
-          </div>
-          <div style="margin-top:20px;background:rgba(255,255,255,.05);border-radius:10px;padding:12px 16px;font-size:12px;color:rgba(255,255,255,.45);line-height:1.6">
-            All Psyvora therapists have verified Doxy.me rooms. Your session link is personal and expires after use.
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- DOXY STATS -->
-    <div class="doxy-stats">
-      <div class="doxy-stat"><div class="doxy-stat-num">100%</div><div class="doxy-stat-label">HIPAA Compliant</div></div>
-      <div class="doxy-stat"><div class="doxy-stat-num">0 MB</div><div class="doxy-stat-label">No App to Download</div></div>
-      <div class="doxy-stat"><div class="doxy-stat-num">256-bit</div><div class="doxy-stat-label">Encryption Standard</div></div>
-    </div>
-
-    <!-- SESSION PREVIEW -->
-    <div class="video-preview">
-      <div class="video-preview-header">
-        <h3>Live Doxy.me Session Preview</h3>
-        <div class="live-badge">Session in progress</div>
-      </div>
-      <div class="video-mock">
-        <div class="video-bg-grid"></div>
-        <div class="video-participants">
-          <div class="participant" style="text-align:center">
-            <div class="participant-video"><div class="participant-avatar">PM</div></div>
-            <div class="participant-label">Dr. Priya Mehta</div>
-          </div>
-          <div class="video-divider">⟷</div>
-          <div class="participant" style="text-align:center">
-            <div class="participant-video" style="background:rgba(196,120,77,.15);border-color:rgba(196,120,77,.2)"><div class="participant-avatar" style="color:rgba(196,120,77,.8)">You</div></div>
-            <div class="participant-label you-label">You</div>
-          </div>
-        </div>
-        <div style="position:absolute;top:14px;right:14px;background:rgba(107,143,113,.25);border:1px solid rgba(107,143,113,.4);color:#9fcca5;font-size:11px;font-weight:500;padding:5px 12px;border-radius:50px;font-family:'DM Sans',sans-serif">🔒 Doxy.me · HIPAA</div>
-        <div style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.6);color:white;font-size:13px;font-weight:500;padding:5px 14px;border-radius:50px;font-family:'DM Sans',sans-serif" id="sessionTimer">⏱ 00:24:17</div>
-      </div>
-      <div class="video-controls">
-        <button class="ctrl-btn">🎙️</button>
-        <button class="ctrl-btn">📷</button>
-        <button class="ctrl-btn">🖥️</button>
-        <button class="ctrl-btn">💬</button>
-        <button class="ctrl-btn">📝</button>
-        <button class="ctrl-btn end">📵</button>
-      </div>
-      <div class="session-info-row">
-        <div class="sinfo"><div class="sinfo-val">60 min</div><div class="sinfo-key">Duration</div></div>
-        <div class="sinfo"><div class="sinfo-val">Doxy.me</div><div class="sinfo-key">Platform</div></div>
-        <div class="sinfo"><div class="sinfo-val">256-bit</div><div class="sinfo-key">Encryption</div></div>
-        <div class="sinfo"><div class="sinfo-val">Private</div><div class="sinfo-key">Room Access</div></div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- Secure Video Therapy section removed — replaced by real content below -->
 
 <!-- HOW IT WORKS -->
 <section style="background:var(--white)">
@@ -476,7 +349,7 @@ footer{background:var(--deep2);padding:60px 5% 32px}
       <div class="step"><div class="step-num">1</div><div class="step-icon">🎯</div><h4>Choose Service</h4><p>Pick therapy type — individual, couples, or group session.</p></div>
       <div class="step"><div class="step-num">2</div><div class="step-icon">📅</div><h4>Pick a Slot</h4><p>Choose your preferred date and time from therapist availability.</p></div>
       <div class="step"><div class="step-num">3</div><div class="step-icon">💳</div><h4>Pay Securely</h4><p>Pay via UPI, card, or net banking. Confirmation sent instantly.</p></div>
-      <div class="step"><div class="step-num">4</div><div class="step-icon">🔗</div><h4>Join via Doxy.me</h4><p>Click your personal Doxy.me link at session time — no app needed!</p></div>
+      <div class="step"><div class="step-num">4</div><div class="step-icon">🔗</div><h4>Join Secure Session</h4><p>Receive your encrypted video link by email. Click to join at session time — no app needed!</p></div>
     </div>
   </div>
 </section>
@@ -486,43 +359,43 @@ footer{background:var(--deep2);padding:60px 5% 32px}
   <div class="section-inner">
     <div class="section-tag">Our Services</div>
     <h2 class="section-title">Therapy That Fits <em style="font-style:italic">Your Life</em></h2>
-    <p class="section-sub">All sessions conducted online via secure Doxy.me video from the comfort of your home.</p>
+    <p class="section-sub">All sessions conducted online via encrypted, secure video — from the comfort of your home.</p>
     <div class="services-grid">
       <div class="service-card" onclick="openConsultModal()">
         <div class="s-icon">🧠</div><h3>Individual Therapy</h3>
         <p>One-on-one video sessions with a licensed therapist for anxiety, depression &amp; stress.</p>
         <div class="service-meta"><span class="price">₹999</span><span class="duration">60 minutes</span></div>
-        <div class="video-tag">🔒 Doxy.me · HIPAA Secure</div>
+        <div class="video-tag">🔒 Secure Video Therapy</div>
       </div>
       <div class="service-card" onclick="openConsultModal()">
         <div class="s-icon">💑</div><h3>Couples Counseling</h3>
         <p>Strengthen your relationship via guided video. Build communication &amp; intimacy together.</p>
         <div class="service-meta"><span class="price">₹1,499</span><span class="duration">75 minutes</span></div>
-        <div class="video-tag">🔒 Doxy.me · HIPAA Secure</div>
+        <div class="video-tag">🔒 Secure Video Therapy</div>
       </div>
       <div class="service-card" onclick="openConsultModal()">
         <div class="s-icon">👥</div><h3>Group Therapy</h3>
         <p>Connect with others in a safe, therapist-led group video environment. Heal in community.</p>
         <div class="service-meta"><span class="price">₹399</span><span class="duration">90 minutes</span></div>
-        <div class="video-tag">🔒 Doxy.me · Group Room</div>
+        <div class="video-tag">🔒 Secure Video Therapy</div>
       </div>
       <div class="service-card" onclick="openConsultModal()">
         <div class="s-icon">🧘</div><h3>Mindfulness Coaching</h3>
         <p>Evidence-based mindfulness &amp; meditation guided by an expert in real time via video.</p>
         <div class="service-meta"><span class="price">₹799</span><span class="duration">45 minutes</span></div>
-        <div class="video-tag">🔒 Doxy.me · HIPAA Secure</div>
+        <div class="video-tag">🔒 Secure Video Therapy</div>
       </div>
       <div class="service-card" onclick="openConsultModal()">
         <div class="s-icon">🏢</div><h3>Corporate Wellness</h3>
         <p>Team video sessions, burnout prevention &amp; mental health programs for organizations.</p>
         <div class="service-meta"><span class="price">₹4,999</span><span class="duration">Team session</span></div>
-        <div class="video-tag">🔒 Doxy.me · Group Room</div>
+        <div class="video-tag">🔒 Secure Video Therapy</div>
       </div>
       <div class="service-card" onclick="openConsultModal()">
         <div class="s-icon">☎️</div><h3>Free Discovery Call</h3>
         <p>A free 15-min video call to find the right therapist &amp; plan for your specific needs.</p>
         <div class="service-meta"><span class="price">Free</span><span class="duration">15 minutes</span></div>
-        <div class="video-tag">🔒 Doxy.me · No login needed</div>
+        <div class="video-tag">🔒 Secure Video Therapy</div>
       </div>
     </div>
   </div>
@@ -538,11 +411,11 @@ footer{background:var(--deep2);padding:60px 5% 32px}
       <div class="event-featured">
         <div class="event-tag-badge">⭐ Featured Event</div>
         <h3>Overcome Social Anxiety — Live Workshop</h3>
-        <p>A transformative 2-hour video session with Dr. Priya Mehta. Learn practical CBT tools to break free from social anxiety.</p>
+        <p>A transformative 2-hour live video workshop on managing social anxiety with practical CBT tools.</p>
         <div class="event-meta-row">
           <div class="event-meta-item"><span>📅</span><span>April 10, 2025</span></div>
           <div class="event-meta-item"><span>⏰</span><span>6:00 – 8:00 PM</span></div>
-          <div class="event-meta-item"><span>🔒</span><span>Doxy.me</span></div>
+          <div class="event-meta-item"><span>🔒</span><span>Secure Video</span></div>
         </div>
         <div class="ticket-row">
           <div class="ticket selected" onclick="selectTicket(this)"><div class="ticket-name">Early Bird</div><div class="ticket-price">₹299</div></div>
@@ -554,61 +427,42 @@ footer{background:var(--deep2);padding:60px 5% 32px}
       <div class="events-list">
         <div class="event-mini" onclick="openEventModal()">
           <div class="event-date-box"><div class="day">15</div><div class="mon">APR</div></div>
-          <div class="event-mini-info"><h4>Managing Burnout &amp; Work Stress</h4><p>🔒 Doxy.me · 7:00 PM · 90 min</p><span class="event-price-tag">₹349</span></div>
+          <div class="event-mini-info"><h4>Managing Burnout &amp; Work Stress</h4><p>🔒 Secure Video · 7:00 PM · 90 min</p><span class="event-price-tag">₹349</span></div>
         </div>
         <div class="event-mini" onclick="openEventModal()">
           <div class="event-date-box"><div class="day">22</div><div class="mon">APR</div></div>
-          <div class="event-mini-info"><h4>Grief &amp; Loss Support Circle</h4><p>🔒 Doxy.me · 6:30 PM · 2 hrs</p><span class="event-price-tag">₹249</span></div>
+          <div class="event-mini-info"><h4>Grief &amp; Loss Support Circle</h4><p>🔒 Secure Video · 6:30 PM · 2 hrs</p><span class="event-price-tag">₹249</span></div>
         </div>
         <div class="event-mini" onclick="openEventModal()">
           <div class="event-date-box"><div class="day">28</div><div class="mon">APR</div></div>
-          <div class="event-mini-info"><h4>Mindful Parenting Masterclass</h4><p>🔒 Doxy.me · 5:00 PM · 3 hrs</p><span class="event-price-tag">₹799</span></div>
+          <div class="event-mini-info"><h4>Mindful Parenting Masterclass</h4><p>🔒 Secure Video · 5:00 PM · 3 hrs</p><span class="event-price-tag">₹799</span></div>
         </div>
         <div class="event-mini" onclick="openEventModal()">
           <div class="event-date-box"><div class="day">05</div><div class="mon">MAY</div></div>
-          <div class="event-mini-info"><h4>Anger Management Workshop</h4><p>🔒 Doxy.me · 4:00 PM · 2 hrs</p><span class="event-price-tag">₹449</span></div>
+          <div class="event-mini-info"><h4>Anger Management Workshop</h4><p>🔒 Secure Video · 4:00 PM · 2 hrs</p><span class="event-price-tag">₹449</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- THERAPISTS -->
+<!-- THERAPISTS — Dynamic from Supabase -->
 <section id="therapists" style="background:var(--cream)">
   <div class="section-inner">
     <div class="section-tag">Our Experts</div>
     <h2 class="section-title">Meet Your <em style="font-style:italic">Therapists</em></h2>
-    <p class="section-sub">Qualified, compassionate professionals available for secure Doxy.me video sessions.</p>
-    <div class="therapists-grid">
-      <div class="therapist-card">
-        <div class="t-img c1">PM<div class="video-avail">● Doxy.me Ready</div></div>
-        <div class="t-body"><h3>Dr. Priya Mehta</h3><span class="t-specialty">Anxiety · Depression · CBT</span><p>PhD Clinical Psychology, NIMHANS. 8+ years with evidence-based approaches.</p><div class="t-rating"><span class="stars">★★★★★</span> 4.9 · 320+ sessions</div><button class="t-book-btn" onclick="openConsultModal()">🔒 Book Doxy.me Session</button></div>
-      </div>
-      <div class="therapist-card">
-        <div class="t-img c2">RK<div class="video-avail">● Doxy.me Ready</div></div>
-        <div class="t-body"><h3>Rahul Khanna</h3><span class="t-specialty">Trauma · Relationships · EMDR</span><p>M.Phil Psychiatry, AIIMS Delhi. Trauma-informed therapy &amp; EMDR for PTSD.</p><div class="t-rating"><span class="stars">★★★★★</span> 4.8 · 290+ sessions</div><button class="t-book-btn" onclick="openConsultModal()">🔒 Book Doxy.me Session</button></div>
-      </div>
-      <div class="therapist-card">
-        <div class="t-img c3">SA<div class="video-avail">● Doxy.me Ready</div></div>
-        <div class="t-body"><h3>Dr. Sanya Arora</h3><span class="t-specialty">Mindfulness · Stress · Burnout</span><p>Certified Mindfulness-Based Therapist, IIT-B. Expert in burnout &amp; stress reduction.</p><div class="t-rating"><span class="stars">★★★★★</span> 4.9 · 410+ sessions</div><button class="t-book-btn" onclick="openConsultModal()">🔒 Book Doxy.me Session</button></div>
-      </div>
+    <p class="section-sub">Verified, compassionate professionals — fetched live from our platform. Book a session with anyone below.</p>
+    <!-- ✅ Dynamic therapist grid — populated from Supabase -->
+    <div class="therapists-grid" id="therapistsGrid">
+      <!-- Loading skeletons shown by default -->
+      <div class="therapist-skeleton"><div class="sk-img"></div><div class="sk-body"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w100"></div><div class="sk-line w80"></div></div></div>
+      <div class="therapist-skeleton"><div class="sk-img"></div><div class="sk-body"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w100"></div><div class="sk-line w80"></div></div></div>
+      <div class="therapist-skeleton"><div class="sk-img"></div><div class="sk-body"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w100"></div><div class="sk-line w80"></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section style="background:var(--sage-light)">
-  <div class="section-inner">
-    <div class="section-tag">Client Stories</div>
-    <h2 class="section-title">Real <em style="font-style:italic">Transformations</em></h2>
-    <p class="section-sub">Stories from people who trusted us with their healing journey.</p>
-    <div class="testimonials-grid">
-      <div class="testi-card"><span class="quote-mark">"</span><p>Psyvora changed how I understand myself. After 8 Doxy.me sessions with Dr. Priya, my anxiety has reduced dramatically. I feel in control of my life now.</p><div class="testi-person"><div class="testi-avatar" style="background:#6B8F71">A</div><div><h5>Ananya S.</h5><p>Bengaluru · Therapy via Doxy.me</p></div></div></div>
-      <div class="testi-card"><span class="quote-mark">"</span><p>The video couples counseling felt so private and safe. Rahul made us feel completely at ease. Our communication has genuinely transformed since we started.</p><div class="testi-person"><div class="testi-avatar" style="background:#C4784D">N</div><div><h5>Neha &amp; Vikram T.</h5><p>Mumbai · Couples via Doxy.me</p></div></div></div>
-      <div class="testi-card"><span class="quote-mark">"</span><p>I was burnt out and didn't realize it. Dr. Sanya's Doxy.me sessions gave me tools I use every day. I'm more productive, calm &amp; genuinely happy at work.</p><div class="testi-person"><div class="testi-avatar" style="background:#4A7B8C">R</div><div><h5>Rohan M.</h5><p>Hyderabad · Burnout via Doxy.me</p></div></div></div>
-    </div>
-  </div>
-</section>
+<!-- Testimonials section removed — no fake reviews -->
 
 <!-- CTA -->
 <section style="background:var(--deep);padding:100px 5%">
@@ -647,7 +501,7 @@ footer{background:var(--deep2);padding:60px 5% 32px}
     <div class="footer-top">
       <div class="footer-brand">
         <h3>Psy<span>vora</span></h3>
-        <p>India's compassionate mental wellness platform — HIPAA-secure Doxy.me video therapy &amp; live events.</p>
+        <p>India's compassionate mental wellness platform — verified therapists, secure video sessions &amp; live events.</p>
         <div class="crisis-bar"><p>🆘 <strong>Crisis Helpline:</strong> iCall — 9152987821 · Mon–Sat, 8am–10pm</p></div>
       </div>
       <div class="footer-col"><h4>Services</h4><ul><li><a href="#">Individual Therapy</a></li><li><a href="#">Couples Counseling</a></li><li><a href="#">Group Therapy</a></li><li><a href="#">Corporate Wellness</a></li><li><a href="#">Free Discovery Call</a></li></ul></div>
@@ -656,7 +510,7 @@ footer{background:var(--deep2);padding:60px 5% 32px}
     </div>
     <div class="footer-bottom">
       <p>© 2025 Psyvora. All rights reserved. | Not a substitute for emergency mental health services.</p>
-      <p>Telemedicine Guidelines 2020 compliant · Doxy.me HIPAA-secured sessions</p>
+      <p>Telemedicine Guidelines 2020 compliant · End-to-end encrypted video sessions</p>
     </div>
   </div>
 </footer>
@@ -690,6 +544,22 @@ footer{background:var(--deep2);padding:60px 5% 32px}
 // ── CONSULTATION MODAL ──
 let cStep=1, cData={}, cTime='10:00 AM';
 
+// Selected therapist for booking (set by openBookingModal)
+let selectedTherapist = null;
+
+// Called from "Book Session" on therapist cards
+function openBookingModal(btn) {
+  selectedTherapist = {
+    id:   btn.dataset.id,
+    name: btn.dataset.name,
+    spec: btn.dataset.spec,
+    price: btn.dataset.price,
+    days: btn.dataset.days,
+    time: btn.dataset.time
+  };
+  openConsultModal();
+}
+
 function openConsultModal(){
   document.getElementById('consultModal').classList.add('open');
   document.getElementById('consultStepsBar').style.display='flex';
@@ -711,9 +581,19 @@ function renderConsult(n){
   cStep=n; setCS(n);
   const body=document.getElementById('consultContent');
   if(n===1){
+    const therapistBanner = selectedTherapist ? `
+      <div style="display:flex;align-items:center;gap:12px;background:var(--sage-light);border-radius:12px;padding:14px 16px;margin-bottom:20px">
+        <div style="width:40px;height:40px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;color:white;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;flex-shrink:0">${selectedTherapist.name.trim().split(/\s+/).map(w=>w[0]).slice(0,2).join('').toUpperCase()}</div>
+        <div>
+          <div style="font-size:14px;font-weight:500;color:var(--deep)">${selectedTherapist.name}</div>
+          <div style="font-size:12px;color:var(--sage-dark)">${selectedTherapist.spec} ${selectedTherapist.price ? '· ₹'+Number(selectedTherapist.price).toLocaleString('en-IN')+'/session' : ''}</div>
+          <div style="font-size:11px;color:var(--text3);margin-top:2px">${selectedTherapist.days} · ${selectedTherapist.time}</div>
+        </div>
+      </div>` : '';
     body.innerHTML=`
       <h3>Book a Consultation</h3>
-      <p>Secure Doxy.me video session — no app needed, just click your link.</p>
+      <p>Secure video session — complete your details below.</p>
+      ${therapistBanner}
       <div class="two-col">
         <div class="form-field"><label>Full Name</label><input class="light-input" id="cn" type="text" placeholder="Your full name" value="${cData.name||''}"/></div>
         <div class="form-field"><label>Phone</label><input class="light-input" id="cp" type="tel" placeholder="+91 00000 00000" value="${cData.phone||''}"/></div>
@@ -733,7 +613,7 @@ function renderConsult(n){
         </div>
       </div>
       <div style="background:var(--sage-light);border-radius:10px;padding:12px 16px;font-size:12px;color:var(--sage-dark);margin-bottom:4px">
-        🔒 Your session will be via <strong>Doxy.me</strong> — HIPAA-compliant, no download required.
+        🔒 Your session details will be shared via email once confirmed by the therapist.
       </div>
       <div class="modal-nav" style="justify-content:flex-end">
         <button class="next-btn" onclick="saveConsult()">Next: Confirm →</button>
@@ -743,20 +623,20 @@ function renderConsult(n){
     const sP={individual:'₹999',couples:'₹1,499',group:'₹399',free:'Free'};
     body.innerHTML=`
       <h3>Confirm Booking</h3>
-      <p>Review your details before we generate your Doxy.me link.</p>
-      <div class="doxy-confirm-banner">
+      <p>Review your details before confirming.</p>
+      <div class="session-confirm-banner">
         <div style="font-size:28px">🔒</div>
-        <div><strong>Doxy.me Session</strong><p>Your personal secure video link will be emailed after payment.</p></div>
+        <div><strong>Secure Video Session</strong><p>Your session details will be confirmed via email after booking.</p></div>
       </div>
       <div class="video-confirm-box">
         <div class="confirm-row"><span>Name</span><span>${cData.name||'—'}</span></div>
         <div class="confirm-row"><span>Email</span><span>${cData.email||'—'}</span></div>
         <div class="confirm-row"><span>Service</span><span>${sL[cData.service]||'Individual Therapy'}</span></div>
         <div class="confirm-row"><span>Time Slot</span><span>${cTime}</span></div>
-        <div class="confirm-row"><span>Platform</span><span>🔒 Doxy.me (HIPAA)</span></div>
+        <div class="confirm-row"><span>Platform</span><span>🔒 Secure Video</span></div>
         <div class="confirm-row"><span>Total Amount</span><span>${sP[cData.service]||'₹999'}</span></div>
       </div>
-      <button class="pay-btn" onclick="confirmConsult()">🔒 Pay &amp; Get Doxy.me Link</button>
+      <button class="pay-btn" onclick="confirmConsult()">🔒 Confirm Booking</button>
       <div class="modal-nav" style="justify-content:flex-start;margin-top:10px">
         <button class="back-btn" onclick="renderConsult(1)">← Edit Details</button>
       </div>`;
@@ -773,19 +653,21 @@ function saveConsult(){
 }
 async function confirmConsult(){
   // ✅ Save booking to Supabase
-  const saved = await bookSession(cData.name, cData.email, cData.service, cTime);
+  const saved = await bookSession(cData.name, cData.email, cData.service, cTime, selectedTherapist ? selectedTherapist.id : null);
   if (!saved) return;
   document.getElementById('consultStepsBar').style.display='none';
   document.getElementById('consultContent').innerHTML=`
     <div class="success-screen">
       <div class="success-icon-wrap">✓</div>
       <h3 style="font-size:26px;margin-bottom:8px">Booking Confirmed!</h3>
-      <p style="font-size:14px;color:var(--text2);margin-bottom:16px">Your <strong>Doxy.me</strong> session link has been sent to <strong>${cData.email||'your email'}</strong>.</p>
-      <div class="zoom-link-box">
-        <p>Your personal secure session link:</p>
-        <a href="#">https://doxy.me/psyvora-${(cData.name||'client').toLowerCase().replace(/\s/g,'-')}</a>
+      <p style="font-size:14px;color:var(--text2);margin-bottom:16px">Your session request has been sent. We'll confirm via <strong>${cData.email||'your email'}</strong> shortly.</p>
+      <div style="background:var(--cream);border:1px solid var(--cream-dark);border-radius:10px;padding:14px 18px;margin:16px 0;text-align:left;font-size:13px;color:var(--text2)">
+        ${selectedTherapist ? '<strong>Therapist:</strong> '+selectedTherapist.name+'<br>' : ''}
+        <strong>Time:</strong> ${cTime}<br>
+        <strong>Service:</strong> ${cData.service || 'Individual Therapy'}<br>
+        <strong>Status:</strong> <span style="color:var(--sage-dark);font-weight:500">Pending Confirmation</span>
       </div>
-      <p style="font-size:12px;color:var(--text3);margin-bottom:20px">📅 ${cTime} &nbsp;·&nbsp; 🔒 HIPAA-secured &nbsp;·&nbsp; Link expires after session</p>
+      <p style="font-size:12px;color:var(--text3);margin-bottom:20px">📅 You'll receive a secure video link once your booking is confirmed by the therapist.</p>
       <button onclick="closeConsultModal()" style="background:var(--sage);color:white;border:none;padding:12px 32px;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:14px;cursor:pointer;font-weight:500">Done 🌿</button>
     </div>`;
 }
@@ -832,7 +714,7 @@ function renderEvent(n){
         </div>
       </div>
       <div style="background:var(--sage-light);border-radius:10px;padding:12px 16px;font-size:12px;color:var(--sage-dark);margin-bottom:4px">
-        🔒 Event hosted on <strong>Doxy.me</strong> · Secure group room · Link sent after purchase
+        🔒 Secure video event · Your access link will be sent to your email after purchase
       </div>
       <div class="modal-nav" style="justify-content:flex-end">
         <button class="next-btn" onclick="renderEvent(2)">Next: Your Details →</button>
@@ -840,7 +722,7 @@ function renderEvent(n){
   } else if(n===2){
     body.innerHTML=`
       <h3>Your Details</h3>
-      <p>We'll send your Doxy.me event link to this email.</p>
+      <p>We'll send your secure event access link to this email.</p>
       <div class="two-col">
         <div class="form-field"><label>Full Name</label><input class="light-input" id="en" type="text" placeholder="Your full name" value="${eData.name||''}"/></div>
         <div class="form-field"><label>Phone</label><input class="light-input" id="ep" type="tel" placeholder="+91 00000 00000" value="${eData.phone||''}"/></div>
@@ -856,9 +738,9 @@ function renderEvent(n){
     body.innerHTML=`
       <h3>Confirm Ticket</h3>
       <p>Review your event booking before payment.</p>
-      <div class="doxy-confirm-banner">
+      <div class="session-confirm-banner">
         <div style="font-size:28px">🎟️</div>
-        <div><strong>Event Access via Doxy.me</strong><p>Secure group room link sent to your email after payment.</p></div>
+        <div><strong>Event Access</strong><p>Your secure video link will be sent to your email after payment.</p></div>
       </div>
       <div class="video-confirm-box">
         <div class="confirm-row"><span>Event</span><span>Overcome Social Anxiety</span></div>
@@ -866,10 +748,10 @@ function renderEvent(n){
         <div class="confirm-row"><span>Ticket Type</span><span>${tL[eTicket]}</span></div>
         <div class="confirm-row"><span>Name</span><span>${eData.name||'—'}</span></div>
         <div class="confirm-row"><span>Email</span><span>${eData.email||'—'}</span></div>
-        <div class="confirm-row"><span>Platform</span><span>🔒 Doxy.me Group Room</span></div>
+        <div class="confirm-row"><span>Platform</span><span>🔒 Secure Video Session</span></div>
         <div class="confirm-row"><span>Total Amount</span><span>${tP[eTicket]}</span></div>
       </div>
-      <button class="pay-btn" onclick="confirmEvent()">🔒 Pay &amp; Get Event Link</button>
+      <button class="pay-btn" onclick="confirmEvent()">🔒 Confirm &amp; Pay</button>
       <div class="modal-nav" style="justify-content:flex-start;margin-top:10px">
         <button class="back-btn" onclick="renderEvent(2)">← Edit Details</button>
       </div>`;
@@ -898,17 +780,15 @@ async function confirmEvent(){
       <div class="success-icon-wrap">🎟️</div>
       <h3 style="font-size:26px;margin-bottom:8px">Ticket Confirmed!</h3>
       <p style="font-size:14px;color:var(--text2);margin-bottom:16px">Your event access link has been sent to <strong>${eData.email||'your email'}</strong>.</p>
-      <div class="zoom-link-box">
-        <p>Your Doxy.me event room link:</p>
-        <a href="#">https://doxy.me/psyvora-event-apr10</a>
+      <div style="background:var(--cream);border:1px solid var(--cream-dark);border-radius:10px;padding:14px 18px;margin:16px 0;font-size:13px;color:var(--text2)">
+        🔒 Your secure event access link will be sent to your email before the event starts.
       </div>
-      <p style="font-size:12px;color:var(--text3);margin-bottom:20px">📅 April 10 · 6:00 PM &nbsp;·&nbsp; 🔒 Doxy.me secured &nbsp;·&nbsp; Link active 15 min before event</p>
+      <p style="font-size:12px;color:var(--text3);margin-bottom:20px">📅 April 10 · 6:00 PM &nbsp;·&nbsp; Check your email for the video link</p>
       <button onclick="closeEventModal()" style="background:var(--terra);color:white;border:none;padding:12px 32px;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:14px;cursor:pointer;font-weight:500">See you there! 🎉</button>
     </div>`;
 }
 
-// Hero slot
-function selectSlot(el){document.querySelectorAll('.slot').forEach(s=>s.classList.remove('active'));el.classList.add('active')}
+// (Hero slot picker removed — no fake slots)
 // Events ticket
 function selectTicket(el){document.querySelectorAll('.ticket').forEach(t=>t.classList.remove('selected'));el.classList.add('selected')}
 // Enquiry — calls bookSession() which reads all 4 fields from the CTA form
@@ -931,15 +811,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     if(t)t.scrollIntoView({behavior:'smooth'});
   });
 });
-// Timer
-let sec=24*60+17;
-setInterval(()=>{
-  sec++;
-  const m=String(Math.floor(sec/60)).padStart(2,'0');
-  const s=String(sec%60).padStart(2,'0');
-  const el=document.getElementById('sessionTimer');
-  if(el)el.textContent=`⏱ 00:${m}:${s}`;
-},1000);
+// (Session timer removed — no fake session preview)
 </script>
 
 <!-- ✅ SUPABASE CDN — loaded before </body> -->
@@ -957,14 +829,14 @@ const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 // ✅ bookSession(name, email, service, time)
 //
 // Called from:
-//   • "Pay & Get Doxy.me Link"  → confirmConsult()
+//   • "Confirm Booking" → confirmConsult()
 //   • "Pay & Get Event Link"    → confirmEvent()
 //   • "Send Enquiry →"          → submitEnquiry()
 //
 // If no params passed, reads from:
 //   id="name"    id="email"    id="service"    id="time"
 // ──────────────────────────────────────────────
-async function bookSession(nameParam, emailParam, serviceParam, timeParam) {
+async function bookSession(nameParam, emailParam, serviceParam, timeParam, therapistId) {
 
   // Read from DOM if params not provided (CTA enquiry form path)
   const name    = nameParam    || (document.getElementById('name')    ? document.getElementById('name').value.trim()    : '');
@@ -986,10 +858,11 @@ async function bookSession(nameParam, emailParam, serviceParam, timeParam) {
     const { data, error } = await supabaseClient
       .from('bookings')
       .insert([{
-        name:      name,
-        email:     email,
-        service:   service,
-        time_slot: time
+        name:         name,
+        email:        email,
+        service:      service,
+        time_slot:    time,
+        therapist_id: therapistId || null
       }]);
 
     if (error) {
@@ -1012,45 +885,125 @@ async function bookSession(nameParam, emailParam, serviceParam, timeParam) {
 async function addUser(nameParam, emailParam) {
   return await bookSession(nameParam, emailParam);
 }
-</script>
-</body>
-</html>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-<script>
-const supabase = window.supabase.createClient(
-  idjgrexzlbxsyunvcqas
-  sb_publishable_MF7T-XFcEzLqBhzlQq319w_hOwE5zOs
-);
 
-async function loadTherapists() {
-  const { data, error } = await supabase
-    .from("therapists")
-    .select("*")
-    .eq("status", "approved");
+// ──────────────────────────────────────────────
+// ✅ fetchTherapists()
+// Fetches approved therapists from Supabase
+// and renders them into #therapistsGrid
+// Fields: id, name, specialization, experience,
+//         price, bio, status, available_days,
+//         available_time, language
+// ──────────────────────────────────────────────
+const AVATAR_COLORS = ['c0','c1','c2','c3','c4','c5'];
 
-  const container = document.getElementById("therapist-container");
+function getInitials(name) {
+  if (!name) return '?';
+  return name.trim().split(/\s+/).map(w => w[0].toUpperCase()).slice(0,2).join('');
+}
 
-  if (data && data.length > 0) {
-    container.innerHTML = "";
+function renderSkeletons(count = 3) {
+  const skel = `<div class="therapist-skeleton"><div class="sk-img"></div><div class="sk-body"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w100"></div><div class="sk-line w80"></div></div></div>`;
+  document.getElementById('therapistsGrid').innerHTML = skel.repeat(count);
+}
 
-    data.forEach(t => {
-      container.innerHTML += `
-        <div style="border:1px solid #ddd; padding:15px; margin:10px; border-radius:10px;">
-          <h3>${t.name}</h3>
-          <p><b>Specialization:</b> ${t.specialization}</p>
-          <p><b>Experience:</b> ${t.experience} years</p>
-          <p><b>Price:</b> ₹${t.price}</p>
-          <p><b>Available:</b> ${t.available_days} | ${t.available_time}</p>
-          <p><b>Language:</b> ${t.language}</p>
-          <p>${t.bio}</p>
-          <button>Book Session</button>
+function renderTherapistCard(t, index) {
+  const color   = AVATAR_COLORS[index % AVATAR_COLORS.length];
+  const initials = getInitials(t.name);
+  const days    = Array.isArray(t.available_days)  ? t.available_days.join(', ')  : (t.available_days  || 'Flexible');
+  const time    = Array.isArray(t.available_time)  ? t.available_time.join(' – ') : (t.available_time  || 'Flexible');
+  const langs   = Array.isArray(t.language)        ? t.language                   : (t.language ? t.language.split(',').map(l => l.trim()) : ['English']);
+  const langPills = langs.map(l => `<span class="t-lang-pill">${l}</span>`).join('');
+  const bio     = t.bio ? `<div class="t-bio">${t.bio}</div>` : '';
+  const price   = t.price ? `₹${Number(t.price).toLocaleString('en-IN')}` : '—';
+  const exp     = t.experience ? `${t.experience} yr${t.experience > 1 ? 's' : ''}` : '—';
+
+  return `
+    <div class="therapist-card">
+      <div class="t-img ${color}">
+        ${initials}
+        <div class="video-avail">● Available</div>
+      </div>
+      <div class="t-body">
+        <h3>${t.name || 'Therapist'}</h3>
+        <span class="t-specialty">${t.specialization || 'General Wellness'}</span>
+        <div class="t-price-row">
+          <div>
+            <div class="t-price">${price}</div>
+            <div class="t-price-label">per session</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-size:18px;font-weight:600;color:var(--deep);font-family:'Cormorant Garamond',serif">${exp}</div>
+            <div style="font-size:11px;color:var(--text3)">experience</div>
+          </div>
         </div>
-      `;
-    });
-  } else {
-    container.innerHTML = "No therapists available";
+        <div class="t-meta-grid">
+          <div class="t-meta-item">
+            <div class="t-meta-label">Available Days</div>
+            <div class="t-meta-value">${days}</div>
+          </div>
+          <div class="t-meta-item">
+            <div class="t-meta-label">Time Slot</div>
+            <div class="t-meta-value">${time}</div>
+          </div>
+        </div>
+        <div class="t-lang-row">${langPills}</div>
+        ${bio}
+        <div class="t-spacer"></div>
+        <button class=\'t-book-btn\' data-id=\'${t.id||""}\' data-name=\'${(t.name||"").replace(/\'/g,"\\\'")}\' data-spec=\'${(t.specialization||"").replace(/\'/g,"\\\'")}\' data-price=\'${t.price||""}\' data-days=\'${days}\' data-time=\'${time}\' onclick=\'openBookingModal(this)\'>📅 Book Session</button>
+      </div>
+    </div>`;
+}
+
+async function fetchTherapists() {
+  const grid = document.getElementById('therapistsGrid');
+  if (!grid) return;
+
+  // Show loading skeletons
+  renderSkeletons(3);
+
+  try {
+    const { data, error } = await supabaseClient
+      .from('therapists')
+      .select('id, name, specialization, experience, price, bio, status, available_days, available_time, language')
+      .eq('status', 'approved');
+
+    if (error) {
+      console.error('Error fetching therapists:', error);
+      grid.innerHTML = `
+        <div class="t-empty-state">
+          <div class="t-empty-icon">⚠️</div>
+          <div class="t-empty-title">Could not load therapists</div>
+          <div class="t-empty-sub">${error.message}</div>
+        </div>`;
+      return;
+    }
+
+    if (!data || data.length === 0) {
+      grid.innerHTML = `
+        <div class="t-empty-state">
+          <div class="t-empty-icon">🌿</div>
+          <div class="t-empty-title">No therapists available</div>
+          <div class="t-empty-sub">Our team is being updated. Please check back soon.</div>
+        </div>`;
+      return;
+    }
+
+    // Render all cards
+    grid.innerHTML = data.map((t, i) => renderTherapistCard(t, i)).join('');
+
+  } catch (err) {
+    console.error('Unexpected error:', err);
+    grid.innerHTML = `
+      <div class="t-empty-state">
+        <div class="t-empty-icon">⚠️</div>
+        <div class="t-empty-title">Something went wrong</div>
+        <div class="t-empty-sub">Please refresh the page and try again.</div>
+      </div>`;
   }
 }
 
-loadTherapists();
+// ✅ Auto-fetch therapists when page loads
+document.addEventListener('DOMContentLoaded', fetchTherapists);
 </script>
+</body>
+</html> 
