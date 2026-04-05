@@ -1,5 +1,4 @@
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -18,7 +17,6 @@
 }
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
 h1,h2,h3,h4{font-family:'Cormorant Garamond',serif}
-
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,243,236,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--cream-dark);padding:0 5%}
 .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
@@ -29,7 +27,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,243,236,
 .nav-links a:hover{color:var(--sage-dark)}
 .nav-cta{background:var(--deep);color:var(--white);border:none;padding:10px 22px;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:background .2s}
 .nav-cta:hover{background:var(--sage-dark)}
-
 /* HERO — centered, full-width, no fake cards */
 .hero{padding:140px 5% 100px;max-width:860px;margin:0 auto;text-align:center;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--sage-light);color:var(--sage-dark);padding:6px 14px;border-radius:50px;font-size:12px;font-weight:500;margin-bottom:28px}
@@ -37,7 +34,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,243,236,
 .hero h1{font-size:clamp(44px,6vw,76px);line-height:1.05;font-weight:500;color:var(--deep);margin-bottom:22px;letter-spacing:-1.5px}
 .hero h1 em{color:var(--sage);font-style:italic}
 .hero-desc{font-size:18px;line-height:1.7;color:var(--text2);margin-bottom:44px;max-width:560px;font-weight:300}
-
 /* HERO CTA CARDS */
 .hero-cta-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:560px}
 .cta-card{border-radius:var(--r2);padding:24px 22px;cursor:pointer;transition:all .25s;border:1.5px solid transparent;text-align:left}
@@ -55,20 +51,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,243,236,
 .cta-card-arrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;margin-top:14px;opacity:.9}
 .cta-card.primary .cta-card-arrow{color:rgba(255,255,255,.85)}
 .cta-card.secondary .cta-card-arrow{color:var(--sage-dark)}
-
 /* STATS */
 .stats{background:var(--deep);padding:48px 5%}
 .stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
 .stat-item{text-align:center}
 .stat-num{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:600;color:var(--white);line-height:1}
 .stat-label{font-size:13px;color:rgba(255,255,255,.55);margin-top:6px}
-
 section{padding:80px 5%}
 .section-inner{max-width:1200px;margin:0 auto}
 .section-tag{display:inline-block;background:var(--terra-light);color:var(--terra);padding:5px 14px;border-radius:50px;font-size:12px;font-weight:500;margin-bottom:16px}
 .section-title{font-size:clamp(32px,4vw,48px);font-weight:500;color:var(--deep);line-height:1.15;margin-bottom:12px;letter-spacing:-.5px}
 .section-sub{font-size:16px;color:var(--text2);max-width:520px;line-height:1.6;font-weight:300;margin-bottom:48px}
-
 /* Secure Video section */
 .video-mock{background:#0d1a15;border-radius:16px;aspect-ratio:16/9;position:relative;overflow:hidden;margin-bottom:20px;display:flex;align-items:center;justify-content:center}
 .video-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(107,143,113,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(107,143,113,.04) 1px,transparent 1px);background-size:40px 40px}
@@ -87,7 +80,6 @@ section{padding:80px 5%}
 .sinfo{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px;text-align:center}
 .sinfo-val{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--white)}
 .sinfo-key{font-size:11px;color:rgba(255,255,255,.4);margin-top:4px}
-
 /* HOW IT WORKS */
 .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
 .steps-grid::before{content:'';position:absolute;top:32px;left:10%;right:10%;height:1px;background:var(--cream-dark);z-index:0}
@@ -97,21 +89,22 @@ section{padding:80px 5%}
 .step-icon{font-size:22px;margin-bottom:14px}
 .step h4{font-size:16px;font-weight:500;color:var(--deep);margin-bottom:8px;font-family:'DM Sans',sans-serif}
 .step p{font-size:13px;color:var(--text2);line-height:1.6;font-weight:300}
-
 /* SERVICES */
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.service-card{background:var(--white);border-radius:var(--r2);padding:32px;border:1px solid var(--cream-dark);transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service-card{background:var(--white);border-radius:var(--r2);padding:32px;border:1px solid var(--cream-dark);transition:all .3s;cursor:default;position:relative;overflow:hidden;display:flex;flex-direction:column}
 .service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:transparent;transition:background .3s}
-.service-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(42,61,53,.1)}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(42,61,53,.1)}
 .service-card:hover::before{background:var(--sage)}
-.s-icon{width:48px;height:48px;background:var(--sage-light);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:20px}
+.s-icon{width:52px;height:52px;background:var(--sage-light);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:22px}
 .service-card h3{font-size:21px;font-weight:500;color:var(--deep);margin-bottom:10px}
-.service-card>p{font-size:14px;color:var(--text2);line-height:1.6;margin-bottom:16px;font-weight:300}
-.service-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.service-card>p{font-size:14px;color:var(--text2);line-height:1.6;margin-bottom:16px;font-weight:300;flex:1}
+.service-card .service-meta{margin-bottom:14px}
+.svc-request-btn{width:100%;background:var(--deep);color:white;border:none;padding:12px;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;margin-top:auto;letter-spacing:.2px}
+.svc-request-btn:hover{background:var(--sage-dark);transform:translateY(-1px)}
+.service-meta{display:flex;justify-content:flex-start;align-items:center;margin-bottom:12px;gap:8px}
 .price{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--terra)}
 .duration{font-size:12px;color:var(--text3);background:var(--cream);padding:4px 10px;border-radius:50px}
 .video-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--sage-dark);background:var(--sage-light);padding:4px 10px;border-radius:50px;font-weight:500}
-
 /* EVENTS */
 .events-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:24px}
 .event-featured{background:var(--deep);border-radius:var(--r2);padding:40px;color:white;position:relative;overflow:hidden}
@@ -136,10 +129,8 @@ section{padding:80px 5%}
 .event-mini-info h4{font-size:14px;font-weight:500;color:var(--deep);margin-bottom:4px;font-family:'DM Sans',sans-serif}
 .event-mini-info p{font-size:12px;color:var(--text3);margin-bottom:8px}
 .event-price-tag{font-size:12px;font-weight:500;color:var(--terra);background:var(--terra-light);padding:3px 10px;border-radius:50px}
-
 /* THERAPISTS */
 .therapists-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-
 /* ── Dynamic therapist cards from Supabase ── */
 .therapist-card{border-radius:var(--r2);overflow:hidden;border:1px solid var(--cream-dark);transition:all .3s;cursor:default;background:var(--white);display:flex;flex-direction:column}
 .therapist-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(42,61,53,.1)}
@@ -167,7 +158,6 @@ section{padding:80px 5%}
 .t-lang-pill{font-size:11px;color:var(--sage-dark);background:var(--sage-light);padding:3px 10px;border-radius:50px;font-weight:500}
 .t-bio{font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:16px;font-weight:300;font-style:italic;padding:10px 12px;background:var(--cream);border-radius:8px;border-left:3px solid var(--sage)}
 .t-spacer{flex:1}
-
 /* ── Loading skeleton ── */
 .therapist-skeleton{border-radius:var(--r2);overflow:hidden;border:1px solid var(--cream-dark);background:var(--white)}
 .sk-img{height:180px;background:linear-gradient(90deg,#eee 25%,#f5f5f5 50%,#eee 75%);background-size:200% 100%;animation:shimmer 1.4s infinite}
@@ -175,7 +165,6 @@ section{padding:80px 5%}
 .sk-line{height:12px;border-radius:6px;background:linear-gradient(90deg,#eee 25%,#f5f5f5 50%,#eee 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;margin-bottom:12px}
 .sk-line.w80{width:80%}.sk-line.w60{width:60%}.sk-line.w40{width:40%}.sk-line.w100{width:100%}
 @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-
 /* ── Empty / error states ── */
 .t-empty-state{grid-column:1/-1;text-align:center;padding:60px 20px}
 .t-empty-icon{font-size:48px;margin-bottom:16px}
@@ -185,7 +174,6 @@ section{padding:80px 5%}
 .stars{color:#E8A832;letter-spacing:-1px;font-size:13px}
 .t-book-btn{width:100%;background:var(--deep);color:white;border:none;padding:10px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s}
 .t-book-btn:hover{background:var(--sage-dark)}
-
 /* TESTIMONIALS */
 .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .testi-card{background:var(--white);border-radius:var(--r2);padding:28px;border:1px solid rgba(107,143,113,.15)}
@@ -195,7 +183,6 @@ section{padding:80px 5%}
 .testi-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:white}
 .testi-person h5{font-size:13px;font-weight:500;color:var(--deep);font-family:'DM Sans',sans-serif}
 .testi-person p{font-size:11px;color:var(--text3)}
-
 /* FORMS */
 .form-input{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:12px 16px;font-family:'DM Sans',sans-serif;font-size:14px;color:white;width:100%;transition:border .2s}
 .form-input::placeholder{color:rgba(255,255,255,.4)}
@@ -203,7 +190,6 @@ section{padding:80px 5%}
 select.form-input option{background:var(--deep2);color:white}
 .submit-btn{width:100%;background:var(--sage);color:white;border:none;padding:14px;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:all .2s;margin-top:4px}
 .submit-btn:hover{background:var(--sage-dark)}
-
 /* FOOTER */
 footer{background:var(--deep2);padding:60px 5% 32px}
 .footer-inner{max-width:1200px;margin:0 auto}
@@ -221,7 +207,6 @@ footer{background:var(--deep2);padding:60px 5% 32px}
 .crisis-bar{background:rgba(196,120,77,.15);border:1px solid rgba(196,120,77,.3);border-radius:8px;padding:10px 16px;margin-top:16px}
 .crisis-bar p{font-size:12px;color:rgba(255,255,255,.7);line-height:1.4}
 .crisis-bar strong{color:var(--terra)}
-
 /* MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
 .modal-overlay.open{opacity:1;pointer-events:all}
@@ -263,7 +248,6 @@ footer{background:var(--deep2);padding:60px 5% 32px}
 .zoom-link-box{background:var(--cream);border:1px solid var(--cream-dark);border-radius:10px;padding:14px 18px;margin:16px 0;text-align:left}
 .zoom-link-box p{font-size:12px;color:var(--text3);margin-bottom:6px}
 .zoom-link-box a{font-size:13px;color:var(--sage-dark);word-break:break-all;text-decoration:none;font-weight:500}
-
 /* EVENT TICKET MODAL */
 .ticket-type-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:20px}
 .ticket-option{border:1.5px solid var(--cream-dark);border-radius:12px;padding:18px 20px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:space-between}
@@ -274,14 +258,44 @@ footer{background:var(--deep2);padding:60px 5% 32px}
 .ticket-option.selected .ticket-option-info p{color:var(--sage-dark)}
 .ticket-option-price{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--terra)}
 .ticket-option.selected .ticket-option-price{color:var(--sage-dark)}
-
+/* ── Lead Form Modal ── */
+.lead-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:300;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .25s}
+.lead-modal-overlay.open{opacity:1;pointer-events:all}
+.lead-modal{background:var(--white);border-radius:var(--r2);width:100%;max-width:480px;position:relative;transform:translateY(24px);transition:transform .25s;overflow:hidden;max-height:92vh;overflow-y:auto}
+.lead-modal-overlay.open .lead-modal{transform:translateY(0)}
+.lead-modal-header{padding:28px 32px 0}
+.lead-modal-header .lm-service-pill{display:inline-flex;align-items:center;gap:6px;background:var(--sage-light);color:var(--sage-dark);padding:5px 12px;border-radius:50px;font-size:12px;font-weight:500;margin-bottom:14px}
+.lead-modal-header h3{font-size:26px;font-weight:500;color:var(--deep);margin-bottom:6px}
+.lead-modal-header p{font-size:14px;color:var(--text2);font-weight:300;padding-bottom:20px;border-bottom:1px solid var(--cream-dark)}
+.lead-modal-body{padding:24px 32px 32px}
+.lm-field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.lm-field label{font-size:12px;font-weight:500;color:var(--text2);letter-spacing:.2px}
+.lm-field label .req{color:var(--terra)}
+.lm-input{background:var(--cream);border:1.5px solid var(--cream-dark);border-radius:10px;padding:12px 16px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);width:100%;transition:border .2s;outline:none}
+.lm-input:focus{border-color:var(--sage)}
+.lm-input.error{border-color:var(--terra)}
+.lm-input::placeholder{color:var(--text3)}
+.lm-input-readonly{background:var(--sage-light);border-color:rgba(107,143,113,.3);color:var(--sage-dark);font-weight:500}
+.lm-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.lm-error-msg{font-size:11px;color:var(--terra);margin-top:4px;display:none}
+.lm-input.error + .lm-error-msg{display:block}
+.lm-submit-btn{width:100%;background:var(--deep);color:white;border:none;padding:14px;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:all .2s;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:8px}
+.lm-submit-btn:hover{background:var(--sage-dark)}
+.lm-submit-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.lm-privacy{font-size:11px;color:var(--text3);text-align:center;margin-top:12px;line-height:1.5}
+.lm-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;background:var(--cream);border:none;cursor:pointer;font-size:16px;color:var(--text2);display:flex;align-items:center;justify-content:center;transition:background .2s}
+.lm-close:hover{background:var(--cream-dark)}
+.lm-success{text-align:center;padding:48px 32px}
+.lm-success-icon{width:72px;height:72px;background:var(--sage-light);border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:30px}
+.lm-success h3{font-size:26px;font-weight:500;color:var(--deep);margin-bottom:10px}
+.lm-success p{font-size:15px;color:var(--text2);font-weight:300;line-height:1.6;margin-bottom:24px}
+.lm-success-close{background:var(--sage);color:white;border:none;padding:12px 32px;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer}
 @media(max-width:900px){
   .hero{padding-top:100px;min-height:auto}
   .stats-inner,.steps-grid{grid-template-columns:1fr 1fr}
   .services-grid,.testimonials-grid{grid-template-columns:1fr}
   .therapists-grid{grid-template-columns:1fr}
   .events-grid{grid-template-columns:1fr}
-  
   .footer-top{grid-template-columns:1fr 1fr}
   .nav-links{display:none}
   .session-info-row{grid-template-columns:1fr 1fr}
@@ -290,7 +304,6 @@ footer{background:var(--deep2);padding:60px 5% 32px}
 </style>
 </head>
 <body>
-
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
@@ -304,7 +317,6 @@ footer{background:var(--deep2);padding:60px 5% 32px}
     <button class="nav-cta" onclick="openConsultModal()">Book a Session</button>
   </div>
 </nav>
-
 <!-- HERO — clean, centered, no fake data -->
 <div class="hero">
   <div class="hero-badge">India's Mental Wellness Platform</div>
@@ -325,7 +337,6 @@ footer{background:var(--deep2);padding:60px 5% 32px}
     </div>
   </div>
 </div>
-
 <!-- TRUST BAR — generic, no fake numbers -->
 <div class="stats">
   <div class="stats-inner">
@@ -335,9 +346,7 @@ footer{background:var(--deep2);padding:60px 5% 32px}
     <div class="stat-item"><div class="stat-num">💬</div><div class="stat-label">Multilingual Support</div></div>
   </div>
 </div>
-
 <!-- Secure Video Therapy section removed — replaced by real content below -->
-
 <!-- HOW IT WORKS -->
 <section style="background:var(--white)">
   <div class="section-inner">
@@ -353,54 +362,66 @@ footer{background:var(--deep2);padding:60px 5% 32px}
     </div>
   </div>
 </section>
-
 <!-- SERVICES -->
 <section id="services" style="background:var(--cream)">
   <div class="section-inner">
     <div class="section-tag">Our Services</div>
     <h2 class="section-title">Therapy That Fits <em style="font-style:italic">Your Life</em></h2>
-    <p class="section-sub">All sessions conducted online via encrypted, secure video — from the comfort of your home.</p>
+    <p class="section-sub">All sessions conducted via secure video — from the comfort of your home. Reach out and our team will guide you.</p>
     <div class="services-grid">
-      <div class="service-card" onclick="openConsultModal()">
-        <div class="s-icon">🧠</div><h3>Individual Therapy</h3>
-        <p>One-on-one video sessions with a licensed therapist for anxiety, depression &amp; stress.</p>
-        <div class="service-meta"><span class="price">₹999</span><span class="duration">60 minutes</span></div>
-        <div class="video-tag">🔒 Secure Video Therapy</div>
+      <div class="service-card">
+        <div class="s-icon">🧠</div>
+        <h3>Individual Therapy</h3>
+        <p>One-on-one sessions with a licensed therapist tailored to anxiety, depression, trauma &amp; life transitions.</p>
+        <div class="service-meta">
+          <span class="duration">60 minutes · Secure Video</span>
+        </div>
+        <div class="video-tag" style="margin-bottom:16px">🔒 Secure Video Therapy</div>
+        <button class="svc-request-btn" onclick="openLeadModal('Individual Therapy')">Request Consultation</button>
       </div>
-      <div class="service-card" onclick="openConsultModal()">
-        <div class="s-icon">💑</div><h3>Couples Counseling</h3>
-        <p>Strengthen your relationship via guided video. Build communication &amp; intimacy together.</p>
-        <div class="service-meta"><span class="price">₹1,499</span><span class="duration">75 minutes</span></div>
-        <div class="video-tag">🔒 Secure Video Therapy</div>
+      <div class="service-card">
+        <div class="s-icon">💑</div>
+        <h3>Couples Counseling</h3>
+        <p>Strengthen your relationship with guided sessions. Build communication, trust &amp; emotional intimacy.</p>
+        <div class="service-meta">
+          <span class="duration">75 minutes · Secure Video</span>
+        </div>
+        <div class="video-tag" style="margin-bottom:16px">🔒 Secure Video Therapy</div>
+        <button class="svc-request-btn" onclick="openLeadModal('Couples Counseling')">Request Consultation</button>
       </div>
-      <div class="service-card" onclick="openConsultModal()">
-        <div class="s-icon">👥</div><h3>Group Therapy</h3>
-        <p>Connect with others in a safe, therapist-led group video environment. Heal in community.</p>
-        <div class="service-meta"><span class="price">₹399</span><span class="duration">90 minutes</span></div>
-        <div class="video-tag">🔒 Secure Video Therapy</div>
+      <div class="service-card">
+        <div class="s-icon">👥</div>
+        <h3>Group Therapy</h3>
+        <p>Connect with others in a therapist-led group environment. Heal together in a safe, moderated space.</p>
+        <div class="service-meta">
+          <span class="duration">90 minutes · Secure Video</span>
+        </div>
+        <div class="video-tag" style="margin-bottom:16px">🔒 Secure Video Therapy</div>
+        <button class="svc-request-btn" onclick="openLeadModal('Group Therapy')">Request Consultation</button>
       </div>
-      <div class="service-card" onclick="openConsultModal()">
-        <div class="s-icon">🧘</div><h3>Mindfulness Coaching</h3>
-        <p>Evidence-based mindfulness &amp; meditation guided by an expert in real time via video.</p>
-        <div class="service-meta"><span class="price">₹799</span><span class="duration">45 minutes</span></div>
-        <div class="video-tag">🔒 Secure Video Therapy</div>
+      <div class="service-card">
+        <div class="s-icon">🧘</div>
+        <h3>Mindfulness Coaching</h3>
+        <p>Evidence-based mindfulness &amp; meditation techniques to reduce stress and cultivate lasting inner calm.</p>
+        <div class="service-meta">
+          <span class="duration">45 minutes · Secure Video</span>
+        </div>
+        <div class="video-tag" style="margin-bottom:16px">🔒 Secure Video Therapy</div>
+        <button class="svc-request-btn" onclick="openLeadModal('Mindfulness Coaching')">Request Consultation</button>
       </div>
-      <div class="service-card" onclick="openConsultModal()">
-        <div class="s-icon">🏢</div><h3>Corporate Wellness</h3>
-        <p>Team video sessions, burnout prevention &amp; mental health programs for organizations.</p>
-        <div class="service-meta"><span class="price">₹4,999</span><span class="duration">Team session</span></div>
-        <div class="video-tag">🔒 Secure Video Therapy</div>
-      </div>
-      <div class="service-card" onclick="openConsultModal()">
-        <div class="s-icon">☎️</div><h3>Free Discovery Call</h3>
-        <p>A free 15-min video call to find the right therapist &amp; plan for your specific needs.</p>
-        <div class="service-meta"><span class="price">Free</span><span class="duration">15 minutes</span></div>
-        <div class="video-tag">🔒 Secure Video Therapy</div>
+      <div class="service-card">
+        <div class="s-icon">🏢</div>
+        <h3>Corporate Wellness</h3>
+        <p>Employee mental health programs, burnout prevention &amp; team resilience workshops for organizations.</p>
+        <div class="service-meta">
+          <span class="duration">Custom duration · Team</span>
+        </div>
+        <div class="video-tag" style="margin-bottom:16px">🔒 Secure Video Therapy</div>
+        <button class="svc-request-btn" onclick="openLeadModal('Corporate Wellness')">Request Consultation</button>
       </div>
     </div>
   </div>
 </section>
-
 <!-- EVENTS -->
 <section id="events" style="background:var(--white)">
   <div class="section-inner">
@@ -445,7 +466,6 @@ footer{background:var(--deep2);padding:60px 5% 32px}
     </div>
   </div>
 </section>
-
 <!-- THERAPISTS — Dynamic from Supabase -->
 <section id="therapists" style="background:var(--cream)">
   <div class="section-inner">
@@ -461,9 +481,7 @@ footer{background:var(--deep2);padding:60px 5% 32px}
     </div>
   </div>
 </section>
-
 <!-- Testimonials section removed — no fake reviews -->
-
 <!-- CTA -->
 <section style="background:var(--deep);padding:100px 5%">
   <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
@@ -495,7 +513,6 @@ footer{background:var(--deep2);padding:60px 5% 32px}
     </div>
   </div>
 </section>
-
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
@@ -504,9 +521,9 @@ footer{background:var(--deep2);padding:60px 5% 32px}
         <p>India's compassionate mental wellness platform — verified therapists, secure video sessions &amp; live events.</p>
         <div class="crisis-bar"><p>🆘 <strong>Crisis Helpline:</strong> iCall — 9152987821 · Mon–Sat, 8am–10pm</p></div>
       </div>
-      <div class="footer-col"><h4>Services</h4><ul><li><a href="#">Individual Therapy</a></li><li><a href="#">Couples Counseling</a></li><li><a href="#">Group Therapy</a></li><li><a href="#">Corporate Wellness</a></li><li><a href="#">Free Discovery Call</a></li></ul></div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="#">Individual Therapy</a></li><li><a href="#">Couples Counseling</a></li><li><a href="#">Group Therapy</a></li><li><a href="#">Corporate Wellness</a></li></ul></div>
       <div class="footer-col"><h4>Company</h4><ul><li><a href="#">About Us</a></li><li><a href="#">Our Therapists</a></li><li><a href="#">Events</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li></ul></div>
-      <div class="footer-col"><h4>Legal</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Refund Policy</a></li><li><a href="#">Cookie Policy</a></li><li><a href="#">Disclaimer</a></li></ul></div>
+      <div class="footer-col"><h4>Legal</h4><ul><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms-of-service.html">Terms of Service</a></li><li><a href="refund-policy.html">Refund Policy</a></li><li><a href="cookie-policy.html">Cookie Policy</a></li><li><a href="disclaimer.html">Disclaimer</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <p>© 2025 Psyvora. All rights reserved. | Not a substitute for emergency mental health services.</p>
@@ -514,7 +531,6 @@ footer{background:var(--deep2);padding:60px 5% 32px}
     </div>
   </div>
 </footer>
-
 <!-- CONSULTATION MODAL -->
 <div class="modal-overlay" id="consultModal" onclick="closeConsultOutside(event)">
   <div class="modal">
@@ -526,7 +542,6 @@ footer{background:var(--deep2);padding:60px 5% 32px}
     <div class="modal-body" id="consultContent"></div>
   </div>
 </div>
-
 <!-- EVENT TICKET MODAL -->
 <div class="modal-overlay" id="eventModal" onclick="closeEventOutside(event)">
   <div class="modal">
@@ -539,14 +554,11 @@ footer{background:var(--deep2);padding:60px 5% 32px}
     <div class="modal-body" id="eventContent"></div>
   </div>
 </div>
-
 <script>
 // ── CONSULTATION MODAL ──
 let cStep=1, cData={}, cTime='10:00 AM';
-
 // Selected therapist for booking (set by openBookingModal)
 let selectedTherapist = null;
-
 // Called from "Book Session" on therapist cards
 function openBookingModal(btn) {
   selectedTherapist = {
@@ -559,7 +571,6 @@ function openBookingModal(btn) {
   };
   openConsultModal();
 }
-
 function openConsultModal(){
   document.getElementById('consultModal').classList.add('open');
   document.getElementById('consultStepsBar').style.display='flex';
@@ -567,7 +578,6 @@ function openConsultModal(){
 }
 function closeConsultModal(){document.getElementById('consultModal').classList.remove('open')}
 function closeConsultOutside(e){if(e.target===document.getElementById('consultModal'))closeConsultModal()}
-
 function setCS(n){
   for(let i=1;i<=2;i++){
     const el=document.getElementById('cs-'+i);
@@ -576,7 +586,6 @@ function setCS(n){
     if(i===n)el.classList.add('active');
   }
 }
-
 function renderConsult(n){
   cStep=n; setCS(n);
   const body=document.getElementById('consultContent');
@@ -604,7 +613,6 @@ function renderConsult(n){
           <option value="individual">Individual Therapy — ₹999 · 60 min</option>
           <option value="couples">Couples Counseling — ₹1,499 · 75 min</option>
           <option value="group">Group Therapy — ₹399 · 90 min</option>
-          <option value="free">Free Discovery Call · 15 min</option>
         </select>
       </div>
       <div class="form-field"><label>Preferred Time Slot</label>
@@ -619,8 +627,8 @@ function renderConsult(n){
         <button class="next-btn" onclick="saveConsult()">Next: Confirm →</button>
       </div>`;
   } else if(n===2){
-    const sL={individual:'Individual Therapy',couples:'Couples Counseling',group:'Group Therapy',free:'Free Discovery Call'};
-    const sP={individual:'₹999',couples:'₹1,499',group:'₹399',free:'Free'};
+    const sL={individual:'Individual Therapy',couples:'Couples Counseling',group:'Group Therapy'};
+    const sP={individual:'₹999',couples:'₹1,499',group:'₹399'};
     body.innerHTML=`
       <h3>Confirm Booking</h3>
       <p>Review your details before confirming.</p>
@@ -642,7 +650,6 @@ function renderConsult(n){
       </div>`;
   }
 }
-
 function pickCTime(el,val){cTime=val;document.querySelectorAll('.slot-mini').forEach(s=>s.classList.remove('active'));el.classList.add('active')}
 function saveConsult(){
   cData.name=document.getElementById('cn').value;
@@ -671,10 +678,8 @@ async function confirmConsult(){
       <button onclick="closeConsultModal()" style="background:var(--sage);color:white;border:none;padding:12px 32px;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:14px;cursor:pointer;font-weight:500">Done 🌿</button>
     </div>`;
 }
-
 // ── EVENT TICKET MODAL ──
 let eStep=1, eData={}, eTicket='early';
-
 function openEventModal(){
   document.getElementById('eventModal').classList.add('open');
   document.getElementById('eventStepsBar').style.display='flex';
@@ -682,7 +687,6 @@ function openEventModal(){
 }
 function closeEventModal(){document.getElementById('eventModal').classList.remove('open')}
 function closeEventOutside(e){if(e.target===document.getElementById('eventModal'))closeEventModal()}
-
 function setES(n){
   for(let i=1;i<=3;i++){
     const el=document.getElementById('es-'+i);
@@ -691,7 +695,6 @@ function setES(n){
     if(i===n)el.classList.add('active');
   }
 }
-
 function renderEvent(n){
   eStep=n; setES(n);
   const body=document.getElementById('eventContent');
@@ -757,7 +760,6 @@ function renderEvent(n){
       </div>`;
   }
 }
-
 function pickTicket(el,val){
   eTicket=val;
   document.querySelectorAll('.ticket-option').forEach(t=>t.classList.remove('selected'));
@@ -787,7 +789,6 @@ async function confirmEvent(){
       <button onclick="closeEventModal()" style="background:var(--terra);color:white;border:none;padding:12px 32px;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:14px;cursor:pointer;font-weight:500">See you there! 🎉</button>
     </div>`;
 }
-
 // (Hero slot picker removed — no fake slots)
 // Events ticket
 function selectTicket(el){document.querySelectorAll('.ticket').forEach(t=>t.classList.remove('selected'));el.classList.add('selected')}
@@ -813,18 +814,128 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 });
 // (Session timer removed — no fake session preview)
 </script>
-
+<!-- ✅ LEAD FORM MODAL -->
+<div class="lead-modal-overlay" id="leadModal" onclick="closeLeadModalOutside(event)">
+  <div class="lead-modal" id="leadModalBox">
+    <button class="lm-close" onclick="closeLeadModal()" aria-label="Close">✕</button>
+    <div id="leadModalContent"></div>
+  </div>
+</div>
 <!-- ✅ SUPABASE CDN — loaded before </body> -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <script>
 // ──────────────────────────────────────────────
+// ══════════════════════════════════════════════
+// LEAD FORM — Service consultation request
+// ══════════════════════════════════════════════
+let _currentLeadService = '';
+function openLeadModal(serviceName) {
+  _currentLeadService = serviceName || '';
+  document.getElementById('leadModal').classList.add('open');
+  renderLeadForm();
+}
+function closeLeadModal() {
+  document.getElementById('leadModal').classList.remove('open');
+}
+function closeLeadModalOutside(e) {
+  if (e.target === document.getElementById('leadModal')) closeLeadModal();
+}
+function renderLeadForm() {
+  document.getElementById('leadModalContent').innerHTML =
+    '<div class="lead-modal-header">' +
+      '<div class="lm-service-pill">📋 ' + _currentLeadService + '</div>' +
+      '<h3>Request a Consultation</h3>' +
+      '<p>Fill in your details and our team will reach out within 24 hours.</p>' +
+    '</div>' +
+    '<div class="lead-modal-body">' +
+      '<div class="lm-row">' +
+        '<div class="lm-field">' +
+          '<label>Full Name <span class="req">*</span></label>' +
+          '<input class="lm-input" id="lm-name" type="text" placeholder="Your full name" autocomplete="name"/>' +
+          '<span class="lm-error-msg">Name is required</span>' +
+        '</div>' +
+        '<div class="lm-field">' +
+          '<label>Phone Number <span class="req">*</span></label>' +
+          '<input class="lm-input" id="lm-phone" type="tel" placeholder="+91 00000 00000" autocomplete="tel"/>' +
+          '<span class="lm-error-msg">Valid phone required</span>' +
+        '</div>' +
+      '</div>' +
+      '<div class="lm-field">' +
+        '<label>Email Address <span class="req">*</span></label>' +
+        '<input class="lm-input" id="lm-email" type="email" placeholder="your@email.com" autocomplete="email"/>' +
+        '<span class="lm-error-msg">Valid email required</span>' +
+      '</div>' +
+      '<div class="lm-field">' +
+        '<label>Selected Service</label>' +
+        '<input class="lm-input lm-input-readonly" id="lm-service" type="text" value="' + _currentLeadService + '" readonly/>' +
+      '</div>' +
+      '<div class="lm-field">' +
+        '<label>Message <span style="color:var(--text3);font-weight:400">(optional)</span></label>' +
+        '<textarea class="lm-input" id="lm-message" rows="3" placeholder="Tell us what you are looking for\u2026" style="resize:vertical;min-height:80px"></textarea>' +
+      '</div>' +
+      '<button class="lm-submit-btn" id="lm-submit-btn" onclick="submitLead()">' +
+        '<span id="lm-btn-text">Send Request</span>' +
+      '</button>' +
+      '<p class="lm-privacy">\uD83D\uDD12 Your information is private and will never be shared with third parties.</p>' +
+    '</div>';
+}
+function validateLeadForm() {
+  var valid = true;
+  var name  = document.getElementById('lm-name');
+  var phone = document.getElementById('lm-phone');
+  var email = document.getElementById('lm-email');
+  [name, phone, email].forEach(function(el){ el.classList.remove('error'); });
+  if (!name.value.trim()) { name.classList.add('error'); valid = false; }
+  var phoneVal = phone.value.trim().replace(/\s/g, '');
+  if (!phoneVal || phoneVal.length < 7) { phone.classList.add('error'); valid = false; }
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email.value.trim())) { email.classList.add('error'); valid = false; }
+  return valid;
+}
+async function submitLead() {
+  if (!validateLeadForm()) return;
+  var btn     = document.getElementById('lm-submit-btn');
+  var btnText = document.getElementById('lm-btn-text');
+  btn.disabled = true;
+  btnText.textContent = 'Sending\u2026';
+  var firstName = (document.getElementById('lm-name').value.trim().split(' ')[0]) || 'there';
+  var payload = {
+    name:       document.getElementById('lm-name').value.trim(),
+    phone:      document.getElementById('lm-phone').value.trim(),
+    email:      document.getElementById('lm-email').value.trim(),
+    service:    _currentLeadService,
+    message:    document.getElementById('lm-message').value.trim() || null,
+    created_at: new Date().toISOString()
+  };
+  try {
+    var result = await supabaseClient.from('leads').insert([payload]);
+    if (result.error) {
+      console.error('Supabase lead error:', result.error);
+      btn.disabled = false;
+      btnText.textContent = 'Send Request';
+      alert('Something went wrong: ' + result.error.message);
+      return;
+    }
+    document.getElementById('leadModalContent').innerHTML =
+      '<div class="lm-success">' +
+        '<div class="lm-success-icon">\uD83C\uDF3F</div>' +
+        '<h3>Thank you, ' + firstName + '!</h3>' +
+        '<p>Our team will contact you shortly regarding <strong>' + payload.service + '</strong>.<br>' +
+        'We\'ll reach out on <strong>' + payload.phone + '</strong> or <strong>' + payload.email + '</strong>.</p>' +
+        '<button class="lm-success-close" onclick="closeLeadModal()">Done</button>' +
+      '</div>';
+  } catch (err) {
+    console.error('Unexpected error:', err);
+    btn.disabled = false;
+    btnText.textContent = 'Send Request';
+    alert('Unexpected error. Please try again.');
+  }
+}
 // ✅ SUPABASE INITIALIZATION
 // ──────────────────────────────────────────────
 const SUPABASE_URL = 'https://idjgrexzlbxsyunvcqas.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_MF7T-XFcEzLqBhzlQq319w_hOwE5zOs';
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
 // ──────────────────────────────────────────────
 // ✅ bookSession(name, email, service, time)
 //
@@ -837,13 +948,11 @@ const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 //   id="name"    id="email"    id="service"    id="time"
 // ──────────────────────────────────────────────
 async function bookSession(nameParam, emailParam, serviceParam, timeParam, therapistId) {
-
   // Read from DOM if params not provided (CTA enquiry form path)
   const name    = nameParam    || (document.getElementById('name')    ? document.getElementById('name').value.trim()    : '');
   const email   = emailParam   || (document.getElementById('email')   ? document.getElementById('email').value.trim()   : '');
   const service = serviceParam || (document.getElementById('service') ? document.getElementById('service').value.trim() : 'Not specified');
   const time    = timeParam    || (document.getElementById('time')    ? document.getElementById('time').value.trim()    : 'Flexible');
-
   // ── Validation ──
   if (!name) {
     alert('Please enter your name.');
@@ -853,7 +962,6 @@ async function bookSession(nameParam, emailParam, serviceParam, timeParam, thera
     alert('Please enter a valid email address.');
     return false;
   }
-
   try {
     const { data, error } = await supabaseClient
       .from('bookings')
@@ -864,28 +972,23 @@ async function bookSession(nameParam, emailParam, serviceParam, timeParam, thera
         time_slot:    time,
         therapist_id: therapistId || null
       }]);
-
     if (error) {
       console.error('Supabase booking error:', error);
       alert('Booking failed: ' + error.message);
       return false;
     }
-
     alert('Booking Confirmed!');
     return true;
-
   } catch (err) {
     console.error('Unexpected error:', err);
     alert('Something went wrong. Please try again.');
     return false;
   }
 }
-
 // ✅ addUser() kept as alias so nothing else breaks
 async function addUser(nameParam, emailParam) {
   return await bookSession(nameParam, emailParam);
 }
-
 // ──────────────────────────────────────────────
 // ✅ fetchTherapists()
 // Fetches approved therapists from Supabase
@@ -895,17 +998,14 @@ async function addUser(nameParam, emailParam) {
 //         available_time, language
 // ──────────────────────────────────────────────
 const AVATAR_COLORS = ['c0','c1','c2','c3','c4','c5'];
-
 function getInitials(name) {
   if (!name) return '?';
   return name.trim().split(/\s+/).map(w => w[0].toUpperCase()).slice(0,2).join('');
 }
-
 function renderSkeletons(count = 3) {
   const skel = `<div class="therapist-skeleton"><div class="sk-img"></div><div class="sk-body"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w100"></div><div class="sk-line w80"></div></div></div>`;
   document.getElementById('therapistsGrid').innerHTML = skel.repeat(count);
 }
-
 function renderTherapistCard(t, index) {
   const color   = AVATAR_COLORS[index % AVATAR_COLORS.length];
   const initials = getInitials(t.name);
@@ -916,7 +1016,6 @@ function renderTherapistCard(t, index) {
   const bio     = t.bio ? `<div class="t-bio">${t.bio}</div>` : '';
   const price   = t.price ? `₹${Number(t.price).toLocaleString('en-IN')}` : '—';
   const exp     = t.experience ? `${t.experience} yr${t.experience > 1 ? 's' : ''}` : '—';
-
   return `
     <div class="therapist-card">
       <div class="t-img ${color}">
@@ -953,20 +1052,16 @@ function renderTherapistCard(t, index) {
       </div>
     </div>`;
 }
-
 async function fetchTherapists() {
   const grid = document.getElementById('therapistsGrid');
   if (!grid) return;
-
   // Show loading skeletons
   renderSkeletons(3);
-
   try {
     const { data, error } = await supabaseClient
       .from('therapists')
       .select('id, name, specialization, experience, price, bio, status, available_days, available_time, language')
       .eq('status', 'approved');
-
     if (error) {
       console.error('Error fetching therapists:', error);
       grid.innerHTML = `
@@ -977,7 +1072,6 @@ async function fetchTherapists() {
         </div>`;
       return;
     }
-
     if (!data || data.length === 0) {
       grid.innerHTML = `
         <div class="t-empty-state">
@@ -987,10 +1081,8 @@ async function fetchTherapists() {
         </div>`;
       return;
     }
-
     // Render all cards
     grid.innerHTML = data.map((t, i) => renderTherapistCard(t, i)).join('');
-
   } catch (err) {
     console.error('Unexpected error:', err);
     grid.innerHTML = `
@@ -1001,9 +1093,8 @@ async function fetchTherapists() {
       </div>`;
   }
 }
-
 // ✅ Auto-fetch therapists when page loads
 document.addEventListener('DOMContentLoaded', fetchTherapists);
 </script>
 </body>
-</html> 
+</html>
