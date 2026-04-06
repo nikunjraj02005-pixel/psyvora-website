@@ -998,102 +998,199 @@ async function addUser(nameParam, emailParam) {
 //         available_time, language
 // ──────────────────────────────────────────────
 const AVATAR_COLORS = ['c0','c1','c2','c3','c4','c5'];
+
+// ── Helper: get initials from full name ──────────────────────────────────
 function getInitials(name) {
   if (!name) return '?';
-  return name.trim().split(/\s+/).map(w => w[0].toUpperCase()).slice(0,2).join('');
+  return name.trim().split(/\s+/).map(w => w[0].toUpperCase()).slice(0, 2).join('');
 }
-function renderSkeletons(count = 3) {
-  const skel = `<div class="therapist-skeleton"><div class="sk-img"></div><div class="sk-body"><div class="sk-line w60"></div><div class="sk-line w40"></div><div class="sk-line w100"></div><div class="sk-line w80"></div></div></div>`;
-  document.getElementById('therapistsGrid').innerHTML = skel.repeat(count);
+
+// ── Helper: show shimmer skeletons while loading ─────────────────────────
+function renderSkeletons(n) {
+  var skel = '<div class="therapist-skeleton"><div class="sk-img"></div><div class="sk-body">' +
+    '<div class="sk-line w60"></div><div class="sk-line w40"></div>' +
+    '<div class="sk-line w100"></div><div class="sk-line w80"></div>' +
+    '</div></div>';
+  var grid = document.getElementById('therapistsGrid');
+  if (grid) grid.innerHTML = skel.repeat(n || 3);
 }
+
+// ── Safe field helpers ────────────────────────────────────────────────────
+function safe(val, fallback) {
+  if (val === null || val === undefined || String(val).trim() === '') {
+    return fallback !== undefined ? fallback : 'Not specified';
+  }
+  return String(val).trim();
+}
+
+function safePrice(val) {
+  if (val === null || val === undefined || val === '') return 'Contact for pricing';
+  var num = parseFloat(String(val).replace(/[^0-9.]/g, ''));
+  if (isNaN(num)) return String(val);
+  return '\u20B9' + num.toLocaleString('en-IN');
+}
+
+function safeExp(val) {
+  if (val === null || val === undefined || val === '') return 'Not specified';
+  var str = String(val).trim();
+  if (/[a-zA-Z]/.test(str)) return str;        // already has text e.g. "5 years"
+  var num = parseFloat(str);
+  if (isNaN(num)) return str;
+  return num + (num === 1 ? ' yr' : ' yrs');
+}
+
+function safeList(val, sep) {
+  if (!val) return [];
+  if (Array.isArray(val)) return val.map(function(v){ return String(v).trim(); }).filter(Boolean);
+  return String(val).split(sep || ',').map(function(v){ return v.trim(); }).filter(Boolean);
+}
+
+// ── Render a single therapist card ────────────────────────────────────────
 function renderTherapistCard(t, index) {
-  const color   = AVATAR_COLORS[index % AVATAR_COLORS.length];
-  const initials = getInitials(t.name);
-  const days    = Array.isArray(t.available_days)  ? t.available_days.join(', ')  : (t.available_days  || 'Flexible');
-  const time    = Array.isArray(t.available_time)  ? t.available_time.join(' – ') : (t.available_time  || 'Flexible');
-  const langs   = Array.isArray(t.language)        ? t.language                   : (t.language ? t.language.split(',').map(l => l.trim()) : ['English']);
-  const langPills = langs.map(l => `<span class="t-lang-pill">${l}</span>`).join('');
-  const bio     = t.bio ? `<div class="t-bio">${t.bio}</div>` : '';
-  const price   = t.price ? `₹${Number(t.price).toLocaleString('en-IN')}` : '—';
-  const exp     = t.experience ? `${t.experience} yr${t.experience > 1 ? 's' : ''}` : '—';
-  return `
-    <div class="therapist-card">
-      <div class="t-img ${color}">
-        ${initials}
-        <div class="video-avail">● Available</div>
-      </div>
-      <div class="t-body">
-        <h3>${t.name || 'Therapist'}</h3>
-        <span class="t-specialty">${t.specialization || 'General Wellness'}</span>
-        <div class="t-price-row">
-          <div>
-            <div class="t-price">${price}</div>
-            <div class="t-price-label">per session</div>
-          </div>
-          <div style="text-align:right">
-            <div style="font-size:18px;font-weight:600;color:var(--deep);font-family:'Cormorant Garamond',serif">${exp}</div>
-            <div style="font-size:11px;color:var(--text3)">experience</div>
-          </div>
-        </div>
-        <div class="t-meta-grid">
-          <div class="t-meta-item">
-            <div class="t-meta-label">Available Days</div>
-            <div class="t-meta-value">${days}</div>
-          </div>
-          <div class="t-meta-item">
-            <div class="t-meta-label">Time Slot</div>
-            <div class="t-meta-value">${time}</div>
-          </div>
-        </div>
-        <div class="t-lang-row">${langPills}</div>
-        ${bio}
-        <div class="t-spacer"></div>
-        <button class=\'t-book-btn\' data-id=\'${t.id||""}\' data-name=\'${(t.name||"").replace(/\'/g,"\\\'")}\' data-spec=\'${(t.specialization||"").replace(/\'/g,"\\\'")}\' data-price=\'${t.price||""}\' data-days=\'${days}\' data-time=\'${time}\' onclick=\'openBookingModal(this)\'>📅 Book Session</button>
-      </div>
-    </div>`;
+  var color    = AVATAR_COLORS[index % AVATAR_COLORS.length];
+  var initials = getInitials(t.name);
+  var name     = safe(t.name, 'Therapist');
+  var spec     = safe(t.specialization, 'General Wellness');
+  var price    = safePrice(t.price);
+  var exp      = safeExp(t.experience);
+  var bio      = safe(t.bio, '');
+
+  var daysArr  = safeList(t.available_days, ',');
+  var days     = daysArr.length ? daysArr.join(', ') : 'Flexible';
+
+  var timeArr  = safeList(t.available_time, ',');
+  var time     = timeArr.length ? timeArr.join(' \u2013 ') : 'Flexible';
+
+  var langArr  = safeList(t.language, ',');
+  var langs    = langArr.length ? langArr : ['English'];
+
+  var langPills = '';
+  for (var li = 0; li < langs.length; li++) {
+    langPills += '<span class="t-lang-pill">' + langs[li] + '</span>';
+  }
+
+  var bioHTML = bio ? '<div class="t-bio">' + bio + '</div>' : '';
+
+  // Safely encode for data-* attributes
+  function enc(s) { return String(s || '').replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
+
+  return '<div class="therapist-card">' +
+    '<div class="t-img ' + color + '">' +
+      initials +
+      '<div class="video-avail">\u25CF Available</div>' +
+    '</div>' +
+    '<div class="t-body">' +
+      '<h3>' + name + '</h3>' +
+      '<span class="t-specialty">' + spec + '</span>' +
+      '<div class="t-price-row">' +
+        '<div>' +
+          '<div class="t-price">' + price + '</div>' +
+          '<div class="t-price-label">per session</div>' +
+        '</div>' +
+        '<div style="text-align:right">' +
+          '<div style="font-size:16px;font-weight:600;color:var(--deep);font-family:\'Cormorant Garamond\',serif;line-height:1.2">' + exp + '</div>' +
+          '<div style="font-size:11px;color:var(--text3);margin-top:2px">experience</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="t-meta-grid">' +
+        '<div class="t-meta-item">' +
+          '<div class="t-meta-label">Available Days</div>' +
+          '<div class="t-meta-value">' + days + '</div>' +
+        '</div>' +
+        '<div class="t-meta-item">' +
+          '<div class="t-meta-label">Time Slot</div>' +
+          '<div class="t-meta-value">' + time + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="t-lang-row">' + langPills + '</div>' +
+      bioHTML +
+      '<div class="t-spacer"></div>' +
+      '<button class="t-book-btn"' +
+        ' data-id="' + enc(t.id) + '"' +
+        ' data-name="' + enc(name) + '"' +
+        ' data-spec="' + enc(spec) + '"' +
+        ' data-price="' + enc(t.price) + '"' +
+        ' data-days="' + enc(days) + '"' +
+        ' data-time="' + enc(time) + '"' +
+        ' onclick="openBookingModal(this)">' +
+        '\uD83D\uDCC5 Book Session' +
+      '</button>' +
+    '</div>' +
+  '</div>';
 }
+
+// ── Fetch approved therapists from Supabase and render ────────────────────
 async function fetchTherapists() {
-  const grid = document.getElementById('therapistsGrid');
-  if (!grid) return;
-  // Show loading skeletons
+  var grid = document.getElementById('therapistsGrid');
+  if (!grid) { console.warn('[Psyvora] therapistsGrid not found in DOM'); return; }
+
+  // 1. Show loading skeletons
   renderSkeletons(3);
+  console.log('[Psyvora] Fetching therapists...');
+
   try {
-    const { data, error } = await supabaseClient
+    // 2. Query — SELECT * avoids crashing if any column is missing
+    var result = await supabaseClient
       .from('therapists')
-      .select('id, name, specialization, experience, price, bio, status, available_days, available_time, language')
-      .eq('status', 'approved');
+      .select('*')
+      .eq('status', 'approved')
+      .order('id', { ascending: true });
+
+    var data  = result.data;
+    var error = result.error;
+
+    // 3. Log for debugging
+    console.log('[Psyvora] DATA:', data);
+    console.log('[Psyvora] ERROR:', error);
+
+    // 4. Handle Supabase-level error
     if (error) {
-      console.error('Error fetching therapists:', error);
-      grid.innerHTML = `
-        <div class="t-empty-state">
-          <div class="t-empty-icon">⚠️</div>
-          <div class="t-empty-title">Could not load therapists</div>
-          <div class="t-empty-sub">${error.message}</div>
-        </div>`;
+      var errMsg = error.message || JSON.stringify(error);
+      console.error('[Psyvora] Supabase error:', errMsg);
+      grid.innerHTML =
+        '<div class="t-empty-state">' +
+          '<div class="t-empty-icon">\u26A0\uFE0F</div>' +
+          '<div class="t-empty-title">Could not load therapists</div>' +
+          '<div class="t-empty-sub">' + errMsg + '</div>' +
+        '</div>';
       return;
     }
+
+    // 5. Handle empty result
     if (!data || data.length === 0) {
-      grid.innerHTML = `
-        <div class="t-empty-state">
-          <div class="t-empty-icon">🌿</div>
-          <div class="t-empty-title">No therapists available</div>
-          <div class="t-empty-sub">Our team is being updated. Please check back soon.</div>
-        </div>`;
+      console.log('[Psyvora] No approved therapists found.');
+      grid.innerHTML =
+        '<div class="t-empty-state">' +
+          '<div class="t-empty-icon">\uD83C\uDF3F</div>' +
+          '<div class="t-empty-title">No therapists available</div>' +
+          '<div class="t-empty-sub">Our team is being updated. Please check back soon.</div>' +
+        '</div>';
       return;
     }
-    // Render all cards
-    grid.innerHTML = data.map((t, i) => renderTherapistCard(t, i)).join('');
+
+    // 6. Render cards
+    console.log('[Psyvora] Rendering ' + data.length + ' therapist(s)...');
+    var html = '';
+    for (var i = 0; i < data.length; i++) {
+      html += renderTherapistCard(data[i], i);
+    }
+    grid.innerHTML = html;
+    console.log('[Psyvora] Cards rendered successfully.');
+
   } catch (err) {
-    console.error('Unexpected error:', err);
-    grid.innerHTML = `
-      <div class="t-empty-state">
-        <div class="t-empty-icon">⚠️</div>
-        <div class="t-empty-title">Something went wrong</div>
-        <div class="t-empty-sub">Please refresh the page and try again.</div>
-      </div>`;
+    // 7. Catch unexpected JS exceptions
+    var msg = (err && err.message) ? err.message : 'An unexpected error occurred.';
+    console.error('[Psyvora] Exception in fetchTherapists:', err);
+    grid.innerHTML =
+      '<div class="t-empty-state">' +
+        '<div class="t-empty-icon">\u26A0\uFE0F</div>' +
+        '<div class="t-empty-title">Something went wrong</div>' +
+        '<div class="t-empty-sub">' + msg + '</div>' +
+      '</div>';
   }
 }
-// ✅ Auto-fetch therapists when page loads
+
+// ── Auto-run when DOM is ready ────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', fetchTherapists);
 </script>
 </body>
