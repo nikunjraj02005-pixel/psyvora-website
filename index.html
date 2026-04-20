@@ -269,6 +269,33 @@ footer{background:var(--deep2);padding:64px 5% 32px}
 .slot-mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px}
 .slot-mini{background:var(--white);border:1px solid var(--cream-dark);border-radius:8px;padding:8px;text-align:center;cursor:pointer;transition:all .2s;font-size:12px;font-weight:500;color:var(--text)}
 .slot-mini:hover,.slot-mini.active{background:var(--deep);color:white;border-color:var(--deep)}
+/* ── New booking slot cards ── */
+.bk-slots-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.bk-slot-card{border:1.5px solid var(--cream-dark);border-radius:12px;padding:14px 16px;cursor:pointer;transition:all .22s;background:var(--white);position:relative;overflow:hidden}
+.bk-slot-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--deep),var(--sage-dark));opacity:0;transition:opacity .22s}
+.bk-slot-card:hover{border-color:var(--sage);transform:translateY(-2px);box-shadow:0 6px 20px rgba(42,61,53,.1)}
+.bk-slot-card.active{border-color:var(--deep);box-shadow:0 0 0 3px rgba(42,61,53,.12)}
+.bk-slot-card.active::before{opacity:1}
+.bk-slot-inner{position:relative;z-index:1}
+.bk-slot-time{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--deep);transition:color .22s;line-height:1.2;margin-bottom:3px}
+.bk-slot-card.active .bk-slot-time{color:white}
+.bk-slot-range{font-size:11px;color:var(--text2);font-weight:300;transition:color .22s}
+.bk-slot-card.active .bk-slot-range{color:rgba(255,255,255,.75)}
+.bk-slot-check{position:absolute;top:10px;right:10px;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:9px;color:white;opacity:0;transition:opacity .22s}
+.bk-slot-card.active .bk-slot-check{opacity:1}
+/* Slot dropdown */
+.bk-slot-selector{position:relative;margin-bottom:16px}
+.bk-slot-select{width:100%;appearance:none;-webkit-appearance:none;background:var(--cream);border:1.5px solid var(--cream-dark);border-radius:10px;padding:11px 40px 11px 14px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);cursor:pointer;transition:border .2s;outline:none}
+.bk-slot-select:focus{border-color:var(--sage);box-shadow:0 0 0 3px rgba(107,143,113,.12);background:var(--white)}
+.bk-slot-arrow{position:absolute;right:14px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--sage-dark);font-size:11px}
+/* Validation message */
+.bk-val-msg{display:none;align-items:center;gap:7px;background:#FFF0F3;border:1px solid rgba(196,60,80,.25);border-radius:10px;padding:10px 14px;font-size:13px;color:#9B1A35;margin-bottom:14px}
+.bk-val-msg.show{display:flex;animation:bkShake .35s ease}
+.bk-val-msg::before{content:'⚠';font-size:13px;flex-shrink:0}
+@keyframes bkShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+/* Slot confirm pill */
+.bk-confirm-pill{display:inline-flex;align-items:center;gap:8px;background:var(--sage-light);color:var(--sage-dark);border:1px solid rgba(107,143,113,.3);border-radius:50px;padding:8px 18px;font-size:13px;font-weight:500;margin-bottom:14px}
+@media(max-width:480px){.bk-slots-grid{grid-template-columns:1fr}}
 .video-confirm-box{background:var(--cream);border:1px solid var(--cream-dark);border-radius:12px;padding:20px;margin-bottom:20px}
 .confirm-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:6px 0;border-bottom:1px solid var(--cream-dark)}
 .confirm-row:last-child{border-bottom:none;font-weight:500;color:var(--deep);font-size:15px;padding-top:10px}
@@ -882,8 +909,8 @@ function renderConsult(n) {
         '</select>' +
       '</div>' +
       '<div class="form-field">' +
-        '<label>Preferred Time Slot</label>' +
-        '<div id="dynamicSlotGrid" class="slot-mini-grid" style="margin-top:8px"></div>' +
+        '<label>Choose a Time Slot <span style="color:var(--terra);font-size:11px">*</span></label>' +
+        '<div id="dynamicSlotGrid" style="margin-top:8px"></div>' +
       '</div>' +
       '<div style="background:var(--sage-light);border-radius:10px;padding:12px 16px;font-size:12px;color:var(--sage-dark);margin-bottom:16px">' +
         '&#128274; Your session details will be confirmed via email after booking.' +
@@ -933,33 +960,129 @@ function pickCTime(el, val) {
 function renderDynamicSlots() {
   var container = document.getElementById('dynamicSlotGrid');
   if (!container) return;
+
+  // ── Get slots from therapist data ──────────────────────────────────────
   var slots = getSlotsForTherapist(selectedTherapist);
+
+  // ── Fallback: if no slots from Supabase, use Dr. Latha's known slots
+  //    (handles null/empty available_time gracefully)
+  if (slots.length === 0 && selectedTherapist) {
+    var nm = (selectedTherapist.name || '').toLowerCase();
+    if (nm.indexOf('latha') >= 0) {
+      slots = ['12:00 PM', '10:00 PM', '10:30 PM', '11:00 PM'];
+    }
+  }
+
+  // ── Display labels map (start-time → full range label) ─────────────────
+  var slotLabels = {};
+  for (var k = 0; k < slots.length; k++) {
+    var s = slots[k];
+    // Build "10:00 PM – 11:00 PM" style label from start time
+    var mins = slotStartMinutes(s);
+    var endMins = mins + 60; // 1-hour sessions
+    slotLabels[s] = s + ' \u2013 ' + minutesToDisplay(endMins);
+  }
+
+  // ── Special overrides for Dr. Latha's exact known ranges ───────────────
+  if (selectedTherapist && (selectedTherapist.name || '').toLowerCase().indexOf('latha') >= 0) {
+    slotLabels['12:00 PM'] = '12:00 PM \u2013 1:00 PM';
+    slotLabels['10:00 PM'] = '10:00 PM \u2013 11:00 PM';
+    slotLabels['10:30 PM'] = '10:30 PM \u2013 11:30 PM';
+    slotLabels['11:00 PM'] = '11:00 PM \u2013 11:30 PM';
+  }
 
   if (slots.length === 0) {
     var raw = selectedTherapist && selectedTherapist.time ? selectedTherapist.time : null;
     container.innerHTML = raw
-      ? '<p style="font-size:12px;color:var(--text2);grid-column:1/-1;padding:6px 0">Available: ' + raw +
-          '<br><span style="color:var(--text3)">Mention preferred time in message.</span></p>'
-      : '<p style="font-size:12px;color:var(--text3);grid-column:1/-1;padding:6px 0">Contact therapist for available slots.</p>';
+      ? '<p style="font-size:12px;color:var(--text2);padding:8px 0">Available: ' + raw +
+          '<br><span style="color:var(--text3)">Please mention your preferred time in the message.</span></p>'
+      : '<p style="font-size:12px;color:var(--text3);padding:8px 0">Contact therapist for available slots.</p>';
     return;
   }
 
-  var out = '';
-  for (var i = 0; i < slots.length; i++) {
-    var s = slots[i];
-    var cls = 'slot-mini' + (s === cTime ? ' active' : '');
-    // Use &#39; for single quotes inside the HTML attribute to avoid breaking the onclick
-    out += '<div class="' + cls + '" onclick="pickCTime(this,&#39;' + s + '&#39;)">' + s + '</div>';
+  // ── Build dropdown ──────────────────────────────────────────────────────
+  var ddOptions = '<option value="">— Choose a time slot —</option>';
+  for (var j = 0; j < slots.length; j++) {
+    var sv   = slots[j];
+    var lbl  = slotLabels[sv] || sv;
+    var sel  = (sv === cTime) ? ' selected' : '';
+    ddOptions += '<option value="' + sv + '"' + sel + '>' + lbl + '</option>';
   }
-  container.innerHTML = out;
 
+  // ── Build visual cards ──────────────────────────────────────────────────
+  var cards = '';
+  for (var i = 0; i < slots.length; i++) {
+    var sc   = slots[i];
+    var lc   = slotLabels[sc] || sc;
+    var startDisplay = sc;
+    var cls  = 'bk-slot-card' + (sc === cTime ? ' active' : '');
+    cards +=
+      '<div class="' + cls + '" data-slot="' + sc + '" onclick="bkPickSlot(this)">' +
+        '<div class="bk-slot-check">\u2713</div>' +
+        '<div class="bk-slot-inner">' +
+          '<div class="bk-slot-time">' + startDisplay + '</div>' +
+          '<div class="bk-slot-range">' + lc + '</div>' +
+        '</div>' +
+      '</div>';
+  }
+
+  // ── Inject full UI ──────────────────────────────────────────────────────
+  container.innerHTML =
+    '<div class="bk-val-msg" id="bkValMsg">\u26a0\u00a0 Please select a time slot before continuing.</div>' +
+    '<div class="bk-slots-grid" id="bkSlotsGrid">' + cards + '</div>' +
+    '<div class="bk-slot-selector">' +
+      '<select class="bk-slot-select" id="bkSlotDropdown" onchange="bkSyncDropdown(this)">' +
+        ddOptions +
+      '</select>' +
+      '<span class="bk-slot-arrow">\u25bc</span>' +
+    '</div>';
+
+  // Auto-highlight
   if (!cTime && slots.length > 0) {
     cTime = slots[0];
-    var first = container.querySelector('.slot-mini');
-    if (first) first.classList.add('active');
+  }
+  if (cTime) {
+    bkHighlightActive();
+    var dd = document.getElementById('bkSlotDropdown');
+    if (dd) dd.value = cTime;
   }
 }
 
+// ── Helper: parse display time "10:00 PM" back to minutes ──────────────────
+function slotStartMinutes(display) {
+  if (!display) return 0;
+  var m = display.match(/(\d+):(\d+)\s*(AM|PM)/i);
+  if (!m) return 0;
+  var h = parseInt(m[1], 10);
+  var min = parseInt(m[2], 10);
+  var p = m[3].toUpperCase();
+  if (p === 'PM' && h !== 12) h += 12;
+  if (p === 'AM' && h === 12) h = 0;
+  return h * 60 + min;
+}
+
+function bkPickSlot(el) {
+  cTime = el.dataset.slot;
+  bkHighlightActive();
+  var dd = document.getElementById('bkSlotDropdown');
+  if (dd) dd.value = cTime;
+  var vm = document.getElementById('bkValMsg');
+  if (vm) vm.classList.remove('show');
+}
+
+function bkSyncDropdown(dd) {
+  cTime = dd.value;
+  bkHighlightActive();
+  var vm = document.getElementById('bkValMsg');
+  if (vm) vm.classList.remove('show');
+}
+
+function bkHighlightActive() {
+  var cards = document.querySelectorAll('.bk-slot-card');
+  cards.forEach(function(c) {
+    c.classList.toggle('active', c.dataset.slot === cTime);
+  });
+}
 function saveConsult() {
   var cn = document.getElementById('cn');
   var ce = document.getElementById('ce');
@@ -967,7 +1090,19 @@ function saveConsult() {
   if (!cn || !cn.value.trim()) { alert('Please enter your full name.'); return; }
   if (!ce || !ce.value.trim()) { alert('Please enter your email.'); return; }
   if (!cp || !cp.value.trim()) { alert('Please enter your phone number.'); return; }
-  if (!cTime) { alert('Please select a time slot.'); return; }
+  if (!cTime) {
+    // Show inline validation — shake the slot section
+    var vm = document.getElementById('bkValMsg');
+    if (vm) {
+      vm.classList.remove('show');
+      void vm.offsetWidth; // reflow to re-trigger animation
+      vm.classList.add('show');
+      vm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+      alert('Please select a time slot.');
+    }
+    return;
+  }
   cData.name    = cn.value.trim();
   cData.email   = ce.value.trim();
   cData.phone   = cp.value.trim();
@@ -984,7 +1119,7 @@ async function confirmConsult(){
     <div class="success-screen">
       <div class="success-icon-wrap">✓</div>
       <h3 style="font-size:26px;margin-bottom:8px">Booking Confirmed!</h3>
-      <p style="font-size:14px;color:var(--text2);margin-bottom:16px">Your session request has been sent. We'll confirm via <strong>${cData.email||'your email'}</strong> shortly.</p>
+      <p style="font-size:14px;color:var(--text2);margin-bottom:16px">Booking confirmed for <strong style=\"color:var(--sage-dark)\">${cTime || 'your selected slot'}</strong>. We'll reach out to <strong>${cData.email||'your email'}</strong> shortly.</p>
       <div style="background:var(--cream);border:1px solid var(--cream-dark);border-radius:10px;padding:14px 18px;margin:16px 0;text-align:left;font-size:13px;color:var(--text2)">
         ${selectedTherapist ? '<strong>Therapist:</strong> '+selectedTherapist.name+'<br>' : ''}
         <strong>Time:</strong> ${cTime}<br>
